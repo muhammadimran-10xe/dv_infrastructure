@@ -1,0 +1,155 @@
+{
+    "CompileStatus": "Successful",
+    "MlibObjs": {},
+    "SIMBData": {
+        "out": "amcQwB.o",
+        "bytes": 406535
+    },
+    "CurCompileUdps": {},
+    "Misc": {
+        "archive_dir": "archive.0",
+        "daidir": "/root/RV_DV_Track/TCP_Imran/simu/simv.daidir",
+        "cwd": "/root/RV_DV_Track/TCP_Imran/simu",
+        "default_output_dir": "csrc",
+        "csrc": "csrc",
+        "csrc_abs": "/root/RV_DV_Track/TCP_Imran/simu/csrc",
+        "daidir_abs": "/root/RV_DV_Track/TCP_Imran/simu/simv.daidir"
+    },
+    "PrevCompiledModules": {},
+    "CompileStrategy": "fullobj",
+    "NameTable": {
+        "_vcs_DPI_package": [
+            "_vcs_DPI_package",
+            "uM9F1",
+            "module"
+        ],
+        "spi_axi_intf": [
+            "spi_axi_intf",
+            "WqdN8",
+            "module"
+        ],
+        "vcs_paramclassrepository": [
+            "vcs_paramclassrepository",
+            "hEeZs",
+            "module"
+        ],
+        "_vcs_unit__2806646267": [
+            "_vcs_unit__2806646267",
+            "iVZge",
+            "module"
+        ],
+        "axi_package": [
+            "axi_package",
+            "H4tyx",
+            "module"
+        ],
+        "testbench_top": [
+            "testbench_top",
+            "utVZ3",
+            "module"
+        ],
+        "uvm_pkg": [
+            "uvm_pkg",
+            "zr7M1",
+            "module"
+        ],
+        "std": [
+            "std",
+            "reYIK",
+            "module"
+        ],
+        "_vcs_msglog": [
+            "_vcs_msglog",
+            "zQBzV",
+            "module"
+        ],
+        "spi_lite": [
+            "spi_lite",
+            "qjj9j",
+            "module"
+        ],
+        "...MASTER...": [
+            "SIM",
+            "amcQw",
+            "module"
+        ]
+    },
+    "CompileProcesses": [
+        "cgproc.13383.json"
+    ],
+    "stat": {
+        "totalObjSize": 15076581,
+        "ru_self_cgstart": {
+            "ru_utime_sec": 3.171103,
+            "ru_nivcsw": 20,
+            "ru_maxrss_kb": 158304,
+            "ru_stime_sec": 0.096093999999999999,
+            "ru_minflt": 44704,
+            "ru_majflt": 0,
+            "ru_nvcsw": 30
+        },
+        "ru_childs_end": {
+            "ru_utime_sec": 0.0021570000000000001,
+            "ru_nivcsw": 3,
+            "ru_maxrss_kb": 66172,
+            "ru_stime_sec": 0.013917000000000001,
+            "ru_minflt": 1058,
+            "ru_majflt": 0,
+            "ru_nvcsw": 5
+        },
+        "ru_childs_cgstart": {
+            "ru_utime_sec": 0.0021570000000000001,
+            "ru_nivcsw": 3,
+            "ru_maxrss_kb": 66172,
+            "ru_stime_sec": 0.013917000000000001,
+            "ru_minflt": 1058,
+            "ru_majflt": 0,
+            "ru_nvcsw": 5
+        },
+        "mopSpeed": 185465.90915074322,
+        "CodeGen(%)": 41.816022403865155,
+        "nMops": 422682,
+        "nQuads": 134262,
+        "outputSizePerQuad": 112.0,
+        "ru_self_end": {
+            "ru_utime_sec": 5.4501309999999998,
+            "ru_nivcsw": 34,
+            "ru_maxrss_kb": 162560,
+            "ru_stime_sec": 0.20511699999999999,
+            "ru_minflt": 48486,
+            "ru_majflt": 0,
+            "ru_nvcsw": 30
+        },
+        "quadSpeed": 58911.95720280752,
+        "mop/quad": 3.1481878714751752,
+        "Frontend(%)": 58.183977596134845
+    },
+    "CurCompileModules": [
+        "...MASTER...",
+        "...MASTER...",
+        "vcs_paramclassrepository",
+        "vcs_paramclassrepository",
+        "_vcs_DPI_package",
+        "_vcs_DPI_package",
+        "_vcs_unit__2806646267",
+        "_vcs_unit__2806646267",
+        "std",
+        "std",
+        "uvm_pkg",
+        "uvm_pkg",
+        "_vcs_msglog",
+        "_vcs_msglog",
+        "spi_axi_intf",
+        "spi_axi_intf",
+        "axi_package",
+        "axi_package",
+        "spi_lite",
+        "spi_lite",
+        "testbench_top",
+        "testbench_top"
+    ],
+    "LVLData": [
+        "SIM"
+    ],
+    "PEModules": []
+}
