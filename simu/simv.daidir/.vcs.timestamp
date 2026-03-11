@@ -608,7 +608,8 @@
 0 /usr/synopsys/vcs-L-2016.06//etc/uvm-1.2/vcs/spi_lite_defs.v
 0 /usr/synopsys/vcs-L-2016.06//etc/uvm-1.2/verdi/spi_lite_defs.v
 0 /usr/synopsys/vcs-L-2016.06//etc/uvm-1.2/spi_lite_defs.v
-44
+45
++acc
 +define+UVM_VCS_RECORD
 +define+UVM_VERDI_VIF_RECORD
 +incdir+/usr/synopsys/vcs-L-2016.06//etc/uvm-1.2/
@@ -842,18 +843,18 @@ LC_ALL=C
 1464145497 /usr/synopsys/vcs-L-2016.06//etc/uvm-1.2/macros/uvm_global_defines.svh
 1464145497 /usr/synopsys/vcs-L-2016.06//etc/uvm-1.2/macros/uvm_version_defines.svh
 1464148931 /usr/synopsys/vcs-L-2016.06//etc/uvm-1.2/uvm_macros.svh
-1773215475 ../testbench/testbench_top.sv
+1773221136 ../testbench/testbench_top.sv
 1773215246 ../testbench/test.sv
 1773040093 ../dut/spi_lite.v
 1773040097 ../dut/spi_lite_defs.v
-1773213754 ../axi_uvc/axi_package.sv
+1773217414 ../axi_uvc/axi_package.sv
 1773063673 ../axi_uvc/axi_environment.sv
 1773063477 ../axi_uvc/axi_agent.sv
-1773212686 ../axi_uvc/axi_monitor.sv
-1773213164 ../axi_uvc/axi_driver.sv
-1773212732 ../axi_uvc/axi_sequence.sv
+1773237114 ../axi_uvc/axi_monitor.sv
+1773236393 ../axi_uvc/axi_driver.sv
+1773228976 ../axi_uvc/axi_sequence.sv
 1773209987 ../axi_uvc/axi_sequencer.sv
-1773212435 ../axi_uvc/axi_transaction.sv
+1773222397 ../axi_uvc/axi_transaction.sv
 1773213311 ../interface/spi_axi_intf.sv
 1464145497 /usr/synopsys/vcs-L-2016.06//etc/uvm-1.2/verdi/uvm_custom_install_verdi_recorder.sv
 1464145497 /usr/synopsys/vcs-L-2016.06//etc/uvm-1.2/verdi/uvm_custom_install_verdi_recorder.sv
@@ -869,4 +870,4 @@ LC_ALL=C
 1464147802 /usr/synopsys/vcs-L-2016.06/linux64/lib/libvirsim.so
 1464147272 /usr/synopsys/vcs-L-2016.06/linux64/lib/liberrorinf.so
 1464147248 /usr/synopsys/vcs-L-2016.06/linux64/lib/libsnpsmalloc.so
-1773215488 simv.daidir
+1773237130 simv.daidir

@@ -1,12 +1,12 @@
 {
-    "_vcs_DPI_package": [
-        "_vcs_DPI_package",
-        "uM9F1",
-        "module"
-    ],
     "spi_axi_intf": [
         "spi_axi_intf",
         "WqdN8",
+        "module"
+    ],
+    "_vcs_DPI_package": [
+        "_vcs_DPI_package",
+        "uM9F1",
         "module"
     ],
     "vcs_paramclassrepository": [
@@ -29,14 +29,14 @@
         "utVZ3",
         "module"
     ],
-    "uvm_pkg": [
-        "uvm_pkg",
-        "zr7M1",
-        "module"
-    ],
     "std": [
         "std",
         "reYIK",
+        "module"
+    ],
+    "uvm_pkg": [
+        "uvm_pkg",
+        "zr7M1",
         "module"
     ],
     "_vcs_msglog": [

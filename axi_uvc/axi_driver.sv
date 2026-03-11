@@ -27,6 +27,7 @@ class axi_driver extends uvm_driver #(axi_transaction);
             else
                 drive_read(trans);
             seq_item_port.item_done();
+            trans.print();
         end
     endtask
 

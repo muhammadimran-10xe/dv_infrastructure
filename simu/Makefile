@@ -5,6 +5,7 @@ TOP      = testbench_top
 
 VCS_FLAGS = -full64 -sverilog \
             -ntb_opts uvm-1.2 \
+            +acc \
             -debug_access+all \
             -l compile.log
 
@@ -22,4 +23,4 @@ run:
 	$(SIMV) $(SIM_FLAGS)
 
 clean:
-	rm -rf simv* csrc *.log DVEfiles ucli.key vc_hdrs.h
+	rm -rf simv* csrc *.log DVEfiles ucli.key vc_hdrs.h wave.vcd wave.vcd.vpd wave.vpd

@@ -1,31 +1,15 @@
 {
-    "CompileStatus": "Successful",
+    "PEModules": [],
     "MlibObjs": {},
-    "SIMBData": {
-        "out": "amcQwB.o",
-        "bytes": 406535
-    },
-    "CurCompileUdps": {},
-    "Misc": {
-        "archive_dir": "archive.0",
-        "daidir": "/root/RV_DV_Track/TCP_Imran/simu/simv.daidir",
-        "cwd": "/root/RV_DV_Track/TCP_Imran/simu",
-        "default_output_dir": "csrc",
-        "csrc": "csrc",
-        "csrc_abs": "/root/RV_DV_Track/TCP_Imran/simu/csrc",
-        "daidir_abs": "/root/RV_DV_Track/TCP_Imran/simu/simv.daidir"
-    },
-    "PrevCompiledModules": {},
-    "CompileStrategy": "fullobj",
     "NameTable": {
-        "_vcs_DPI_package": [
-            "_vcs_DPI_package",
-            "uM9F1",
-            "module"
-        ],
         "spi_axi_intf": [
             "spi_axi_intf",
             "WqdN8",
+            "module"
+        ],
+        "_vcs_DPI_package": [
+            "_vcs_DPI_package",
+            "uM9F1",
             "module"
         ],
         "vcs_paramclassrepository": [
@@ -48,14 +32,14 @@
             "utVZ3",
             "module"
         ],
-        "uvm_pkg": [
-            "uvm_pkg",
-            "zr7M1",
-            "module"
-        ],
         "std": [
             "std",
             "reYIK",
+            "module"
+        ],
+        "uvm_pkg": [
+            "uvm_pkg",
+            "zr7M1",
             "module"
         ],
         "_vcs_msglog": [
@@ -74,56 +58,7 @@
             "module"
         ]
     },
-    "CompileProcesses": [
-        "cgproc.13383.json"
-    ],
-    "stat": {
-        "totalObjSize": 15076581,
-        "ru_self_cgstart": {
-            "ru_utime_sec": 3.171103,
-            "ru_nivcsw": 20,
-            "ru_maxrss_kb": 158304,
-            "ru_stime_sec": 0.096093999999999999,
-            "ru_minflt": 44704,
-            "ru_majflt": 0,
-            "ru_nvcsw": 30
-        },
-        "ru_childs_end": {
-            "ru_utime_sec": 0.0021570000000000001,
-            "ru_nivcsw": 3,
-            "ru_maxrss_kb": 66172,
-            "ru_stime_sec": 0.013917000000000001,
-            "ru_minflt": 1058,
-            "ru_majflt": 0,
-            "ru_nvcsw": 5
-        },
-        "ru_childs_cgstart": {
-            "ru_utime_sec": 0.0021570000000000001,
-            "ru_nivcsw": 3,
-            "ru_maxrss_kb": 66172,
-            "ru_stime_sec": 0.013917000000000001,
-            "ru_minflt": 1058,
-            "ru_majflt": 0,
-            "ru_nvcsw": 5
-        },
-        "mopSpeed": 185465.90915074322,
-        "CodeGen(%)": 41.816022403865155,
-        "nMops": 422682,
-        "nQuads": 134262,
-        "outputSizePerQuad": 112.0,
-        "ru_self_end": {
-            "ru_utime_sec": 5.4501309999999998,
-            "ru_nivcsw": 34,
-            "ru_maxrss_kb": 162560,
-            "ru_stime_sec": 0.20511699999999999,
-            "ru_minflt": 48486,
-            "ru_majflt": 0,
-            "ru_nvcsw": 30
-        },
-        "quadSpeed": 58911.95720280752,
-        "mop/quad": 3.1481878714751752,
-        "Frontend(%)": 58.183977596134845
-    },
+    "PrevCompiledModules": {},
     "CurCompileModules": [
         "...MASTER...",
         "...MASTER...",
@@ -148,8 +83,73 @@
         "testbench_top",
         "testbench_top"
     ],
+    "CompileStrategy": "fullobj",
+    "stat": {
+        "nQuads": 134346,
+        "outputSizePerQuad": 112.0,
+        "mop/quad": 3.1475220698792667,
+        "ru_self_cgstart": {
+            "ru_nivcsw": 14,
+            "ru_nvcsw": 28,
+            "ru_minflt": 44733,
+            "ru_utime_sec": 3.174887,
+            "ru_stime_sec": 0.10699599999999999,
+            "ru_maxrss_kb": 158460,
+            "ru_majflt": 0
+        },
+        "ru_childs_cgstart": {
+            "ru_nivcsw": 4,
+            "ru_nvcsw": 5,
+            "ru_minflt": 1061,
+            "ru_utime_sec": 0.0010549999999999999,
+            "ru_stime_sec": 0.015910000000000001,
+            "ru_maxrss_kb": 66124,
+            "ru_majflt": 0
+        },
+        "nMops": 422857,
+        "Frontend(%)": 58.22296098225906,
+        "totalObjSize": 15084850,
+        "ru_childs_end": {
+            "ru_nivcsw": 4,
+            "ru_nvcsw": 5,
+            "ru_minflt": 1061,
+            "ru_utime_sec": 0.0010549999999999999,
+            "ru_stime_sec": 0.015910000000000001,
+            "ru_maxrss_kb": 66124,
+            "ru_majflt": 0
+        },
+        "CodeGen(%)": 41.777039017740947,
+        "quadSpeed": 58972.983555551255,
+        "ru_self_end": {
+            "ru_nivcsw": 25,
+            "ru_nvcsw": 29,
+            "ru_minflt": 48527,
+            "ru_utime_sec": 5.4529810000000003,
+            "ru_stime_sec": 0.20599899999999999,
+            "ru_maxrss_kb": 162944,
+            "ru_majflt": 0
+        },
+        "mopSpeed": 185618.76726772467
+    },
+    "CurCompileUdps": {},
     "LVLData": [
         "SIM"
     ],
-    "PEModules": []
+    "SIMBData": {
+        "out": "amcQwB.o",
+        "bytes": 407245
+    },
+    "CompileProcesses": [
+        "cgproc.2686.json"
+    ],
+    "Misc": {
+        "default_output_dir": "csrc",
+        "daidir_abs": "/root/RV_DV_Track/TCP_Imran/simu/simv.daidir",
+        "cwd": "/root/RV_DV_Track/TCP_Imran/simu",
+        "csrc_abs": "/root/RV_DV_Track/TCP_Imran/simu/csrc",
+        "csrc": "csrc",
+        "archive_dir": "archive.0",
+        "daidir": "/root/RV_DV_Track/TCP_Imran/simu/simv.daidir"
+    },
+    "CompileStatus": "Successful"
 }

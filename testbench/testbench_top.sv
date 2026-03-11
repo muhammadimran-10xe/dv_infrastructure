@@ -34,6 +34,11 @@ initial begin
 end
 
 initial begin
+$dumpfile("wave.vcd");
+$dumpvars(0, testbench_top);         
+end
+
+initial begin
     uvm_config_db #(virtual spi_axi_intf)::set(null, "*", "vif", intf);
     run_test("axi_base_test");   
 end

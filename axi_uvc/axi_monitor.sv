@@ -26,7 +26,7 @@ class axi_monitor extends uvm_monitor;
         fork
             monitor_writes();
             monitor_reads();
-        join_none
+        join
 
     endtask
 
@@ -43,6 +43,8 @@ class axi_monitor extends uvm_monitor;
             @(posedge vif.clk_i iff (vif.bvalid_o && vif.bready_i));
             trans.wresp = vif.bresp_o;
             ap.write(trans);
+            trans.print();
+            `uvm_info("[MON]", "MON Write Task", UVM_LOW)
         end
     endtask
 
