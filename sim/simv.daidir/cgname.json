@@ -1,32 +1,7 @@
 {
-    "...MASTER...": [
-        "SIM",
-        "amcQw",
-        "module"
-    ],
-    "uvm_custom_install_recording": [
-        "uvm_custom_install_recording",
-        "nhiwz",
-        "module"
-    ],
-    "spi_axi_intf": [
-        "spi_axi_intf",
-        "WqdN8",
-        "module"
-    ],
     "vcs_paramclassrepository": [
         "vcs_paramclassrepository",
         "hEeZs",
-        "module"
-    ],
-    "std": [
-        "std",
-        "reYIK",
-        "module"
-    ],
-    "_vcs_unit__4069597086": [
-        "_vcs_unit__4069597086",
-        "asJR9",
         "module"
     ],
     "uvm_pkg": [
@@ -34,14 +9,24 @@
         "zr7M1",
         "module"
     ],
+    "_vcs_unit__4069597086": [
+        "_vcs_unit__4069597086",
+        "asJR9",
+        "module"
+    ],
+    "uvm_custom_install_recording": [
+        "uvm_custom_install_recording",
+        "nhiwz",
+        "module"
+    ],
+    "std": [
+        "std",
+        "reYIK",
+        "module"
+    ],
     "_vcs_msglog": [
         "_vcs_msglog",
         "zQBzV",
-        "module"
-    ],
-    "testbench_top": [
-        "testbench_top",
-        "utVZ3",
         "module"
     ],
     "spi_lite": [
@@ -52,6 +37,21 @@
     "spi_lite_fifo": [
         "spi_lite_fifo",
         "FRRJr",
+        "module"
+    ],
+    "testbench_top": [
+        "testbench_top",
+        "utVZ3",
+        "module"
+    ],
+    "spi_axi_intf": [
+        "spi_axi_intf",
+        "WqdN8",
+        "module"
+    ],
+    "...MASTER...": [
+        "SIM",
+        "amcQw",
         "module"
     ]
 }

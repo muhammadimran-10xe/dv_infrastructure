@@ -1,35 +1,62 @@
 {
+    "stat": {
+        "ru_self_cgstart": {
+            "ru_utime_sec": 3.0415139999999998,
+            "ru_stime_sec": 0.107053,
+            "ru_maxrss_kb": 156672,
+            "ru_minflt": 42804,
+            "ru_nvcsw": 26,
+            "ru_majflt": 0,
+            "ru_nivcsw": 25
+        },
+        "quadSpeed": 70226.96244724268,
+        "totalObjSize": 10449193,
+        "ru_childs_cgstart": {
+            "ru_utime_sec": 0.0019580000000000001,
+            "ru_stime_sec": 0.007698,
+            "ru_maxrss_kb": 63384,
+            "ru_minflt": 485,
+            "ru_nvcsw": 2,
+            "ru_majflt": 0,
+            "ru_nivcsw": 1
+        },
+        "mopSpeed": 195985.41561360186,
+        "Frontend(%)": 66.657958691322804,
+        "nMops": 298163,
+        "nQuads": 106840,
+        "ru_self_end": {
+            "ru_utime_sec": 4.5628669999999998,
+            "ru_stime_sec": 0.183034,
+            "ru_maxrss_kb": 159512,
+            "ru_minflt": 45815,
+            "ru_nvcsw": 26,
+            "ru_majflt": 0,
+            "ru_nivcsw": 28
+        },
+        "ru_childs_end": {
+            "ru_utime_sec": 0.0019580000000000001,
+            "ru_stime_sec": 0.007698,
+            "ru_maxrss_kb": 63384,
+            "ru_minflt": 485,
+            "ru_nvcsw": 2,
+            "ru_majflt": 0,
+            "ru_nivcsw": 1
+        },
+        "mop/quad": 2.7907431673530514,
+        "outputSizePerQuad": 97.0,
+        "CodeGen(%)": 33.342041308677203
+    },
+    "SIMBData": {
+        "out": "amcQwB.o",
+        "bytes": 379828
+    },
     "MlibObjs": {},
     "PrevCompiledModules": {},
+    "PEModules": [],
     "NameTable": {
-        "...MASTER...": [
-            "SIM",
-            "amcQw",
-            "module"
-        ],
-        "uvm_custom_install_recording": [
-            "uvm_custom_install_recording",
-            "nhiwz",
-            "module"
-        ],
-        "spi_axi_intf": [
-            "spi_axi_intf",
-            "WqdN8",
-            "module"
-        ],
         "vcs_paramclassrepository": [
             "vcs_paramclassrepository",
             "hEeZs",
-            "module"
-        ],
-        "std": [
-            "std",
-            "reYIK",
-            "module"
-        ],
-        "_vcs_unit__4069597086": [
-            "_vcs_unit__4069597086",
-            "asJR9",
             "module"
         ],
         "uvm_pkg": [
@@ -37,14 +64,24 @@
             "zr7M1",
             "module"
         ],
+        "_vcs_unit__4069597086": [
+            "_vcs_unit__4069597086",
+            "asJR9",
+            "module"
+        ],
+        "uvm_custom_install_recording": [
+            "uvm_custom_install_recording",
+            "nhiwz",
+            "module"
+        ],
+        "std": [
+            "std",
+            "reYIK",
+            "module"
+        ],
         "_vcs_msglog": [
             "_vcs_msglog",
             "zQBzV",
-            "module"
-        ],
-        "testbench_top": [
-            "testbench_top",
-            "utVZ3",
             "module"
         ],
         "spi_lite": [
@@ -56,68 +93,24 @@
             "spi_lite_fifo",
             "FRRJr",
             "module"
+        ],
+        "testbench_top": [
+            "testbench_top",
+            "utVZ3",
+            "module"
+        ],
+        "spi_axi_intf": [
+            "spi_axi_intf",
+            "WqdN8",
+            "module"
+        ],
+        "...MASTER...": [
+            "SIM",
+            "amcQw",
+            "module"
         ]
     },
-    "CompileProcesses": [
-        "cgproc.27671.json"
-    ],
-    "PEModules": [],
-    "CompileStrategy": "fullobj",
     "CurCompileUdps": {},
-    "LVLData": [
-        "SIM"
-    ],
-    "stat": {
-        "ru_self_cgstart": {
-            "ru_maxrss_kb": 157032,
-            "ru_utime_sec": 3.0516700000000001,
-            "ru_stime_sec": 0.094020000000000006,
-            "ru_majflt": 0,
-            "ru_minflt": 42771,
-            "ru_nvcsw": 26,
-            "ru_nivcsw": 20
-        },
-        "ru_self_end": {
-            "ru_maxrss_kb": 160052,
-            "ru_utime_sec": 4.538392,
-            "ru_stime_sec": 0.174015,
-            "ru_majflt": 0,
-            "ru_minflt": 45956,
-            "ru_nvcsw": 26,
-            "ru_nivcsw": 24
-        },
-        "quadSpeed": 71759.212549488075,
-        "ru_childs_cgstart": {
-            "ru_maxrss_kb": 63408,
-            "ru_utime_sec": 0.0022190000000000001,
-            "ru_stime_sec": 0.0053429999999999997,
-            "ru_majflt": 0,
-            "ru_minflt": 482,
-            "ru_nvcsw": 2,
-            "ru_nivcsw": 2
-        },
-        "ru_childs_end": {
-            "ru_maxrss_kb": 63408,
-            "ru_utime_sec": 0.0022190000000000001,
-            "ru_stime_sec": 0.0053429999999999997,
-            "ru_majflt": 0,
-            "ru_minflt": 482,
-            "ru_nvcsw": 2,
-            "ru_nivcsw": 2
-        },
-        "CodeGen(%)": 32.758783287120188,
-        "nMops": 297945,
-        "nQuads": 106686,
-        "mopSpeed": 200403.9759955123,
-        "totalObjSize": 10439522,
-        "mop/quad": 2.7927281930150158,
-        "outputSizePerQuad": 97.0,
-        "Frontend(%)": 67.241216712879805
-    },
-    "SIMBData": {
-        "out": "amcQwB.o",
-        "bytes": 379635
-    },
     "CurCompileModules": [
         "...MASTER...",
         "...MASTER...",
@@ -142,14 +135,21 @@
         "testbench_top",
         "testbench_top"
     ],
+    "CompileStrategy": "fullobj",
+    "LVLData": [
+        "SIM"
+    ],
+    "CompileStatus": "Successful",
+    "CompileProcesses": [
+        "cgproc.38465.json"
+    ],
     "Misc": {
-        "daidir": "simv.daidir",
         "cwd": "/root/RV_DV_Track/dv_infrastructure/sim",
         "csrc": "csrc",
+        "archive_dir": "archive.0",
         "csrc_abs": "/root/RV_DV_Track/dv_infrastructure/sim/csrc",
-        "daidir_abs": "/root/RV_DV_Track/dv_infrastructure/sim/simv.daidir",
         "default_output_dir": "csrc",
-        "archive_dir": "archive.0"
-    },
-    "CompileStatus": "Successful"
+        "daidir_abs": "/root/RV_DV_Track/dv_infrastructure/sim/simv.daidir",
+        "daidir": "simv.daidir"
+    }
 }
