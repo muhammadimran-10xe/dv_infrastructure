@@ -141,23 +141,25 @@
       <fileinfo name="/usr/synopsys/vcs-L-2016.06//etc/uvm/vcs/uvm_msglog_report_server.sv"  id="136"  />
       <fileinfo name="/usr/synopsys/vcs-L-2016.06//etc/uvm/vcs/uvm_vcs_recorder.svh"  id="137"  />
       <fileinfo name="/usr/synopsys/vcs-L-2016.06//etc/uvm/vcs/uvm_vcs_record_interface.sv"  id="138"  />
-      <fileinfo name="/usr/synopsys/vcs-L-2016.06//etc/uvm/verdi/uvm_custom_install_verdi_recorder.sv"  id="139"  />
-      <fileinfo name="/usr/synopsys/vcs-L-2016.06//etc/uvm/verdi/uvm_verdi_recorder.svh"  id="140"  />
-      <fileinfo name="/usr/synopsys/vcs-L-2016.06//etc/uvm/verdi/uvm_verdi_pli_base.svh"  id="141"  />
-      <fileinfo name="/usr/synopsys/vcs-L-2016.06//etc/uvm/verdi/uvm_verdi_message_catcher.svh"  id="142"  />
-      <fileinfo name="/usr/synopsys/vcs-L-2016.06//etc/uvm/verdi/./dpi/uvm_verdi_dpi.svh"  id="143"  />
-      <fileinfo name="/usr/synopsys/vcs-L-2016.06//etc/uvm/verdi/uvm_verdi_pli.svh"  id="144"  />
-      <fileinfo name="../dut/spi_lite_defs.v"  id="145"  />
-      <fileinfo name="../dut/spi_lite.v"  id="146"  />
-      <fileinfo name="../tb/interface/spi_axi_intf.sv"  id="147"  />
-      <fileinfo name="../tb/axi_uvc/axi_transaction.sv"  id="148"  />
-      <fileinfo name="../tb/axi_uvc/axi_sequencer.sv"  id="149"  />
-      <fileinfo name="../tb/axi_uvc/axi_sequence.sv"  id="150"  />
-      <fileinfo name="../tb/axi_uvc/axi_driver.sv"  id="151"  />
-      <fileinfo name="../tb/axi_uvc/axi_monitor.sv"  id="152"  />
-      <fileinfo name="../tb/axi_uvc/axi_agent.sv"  id="153"  />
-      <fileinfo name="../tb/axi_uvc/axi_environment.sv"  id="154"  />
-      <fileinfo name="../tb/test.sv"  id="155"  />
-      <fileinfo name="../tb/testbench_top.sv"  id="156"  />
-      <fileinfo name=""  id="157"  />
+      <fileinfo name="../dut/spi_lite_defs.v"  id="139"  />
+      <fileinfo name="../dut/spi_lite.v"  id="140"  />
+      <fileinfo name="../tb/interface/spi_axi_intf.sv"  id="141"  />
+      <fileinfo name="../tb/spi_env/axi_uvc/axi_transaction.sv"  id="142"  />
+      <fileinfo name="../tb/spi_env/axi_uvc/axi_sequencer.sv"  id="143"  />
+      <fileinfo name="../tb/spi_env/axi_uvc/axi_sequence.sv"  id="144"  />
+      <fileinfo name="../tb/spi_env/axi_uvc/axi_driver.sv"  id="145"  />
+      <fileinfo name="../tb/spi_env/axi_uvc/axi_monitor.sv"  id="146"  />
+      <fileinfo name="../tb/spi_env/axi_uvc/axi_agent.sv"  id="147"  />
+      <fileinfo name="../tb/spi_env/spi_slave_uvc/spi_slave_transaction.sv"  id="148"  />
+      <fileinfo name="../tb/spi_env/spi_slave_uvc/spi_slave_sequencer.sv"  id="149"  />
+      <fileinfo name="../tb/spi_env/spi_slave_uvc/spi_slave_sequence.sv"  id="150"  />
+      <fileinfo name="../tb/spi_env/spi_slave_uvc/spi_slave_driver.sv"  id="151"  />
+      <fileinfo name="../tb/spi_env/spi_slave_uvc/spi_slave_monitor.sv"  id="152"  />
+      <fileinfo name="../tb/spi_env/spi_slave_uvc/spi_slave_agent.sv"  id="153"  />
+      <fileinfo name="../tb/spi_env/spi_mcsequencer.sv"  id="154"  />
+      <fileinfo name="../tb/spi_env/spi_axi_seq.sv"  id="155"  />
+      <fileinfo name="../tb/spi_env/spi_env.sv"  id="156"  />
+      <fileinfo name="../tb/test.sv"  id="157"  />
+      <fileinfo name="../tb/testbench_top.sv"  id="158"  />
+      <fileinfo name=""  id="159"  />
     </srcinfo>

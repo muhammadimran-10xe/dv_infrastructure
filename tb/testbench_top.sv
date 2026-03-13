@@ -1,8 +1,5 @@
 import uvm_pkg::*;
-`include "uvm_macros.svh"   
-// import axi_package::*;
-// `include "test.sv"
-
+`include "uvm_macros.svh"
 module testbench_top;
 
 logic clk;
@@ -40,7 +37,7 @@ end
 
 initial begin
     uvm_config_db #(virtual spi_axi_intf)::set(null, "*", "vif", intf);
-    run_test("axi_base_test");   
+    run_test("spi_base_test");   
 end
 initial begin
     #2_000_000;

@@ -10,8 +10,6 @@ COMP_OPT += -full64
 COMP_OPT += -timescale=1ns/1ps
 COMP_OPT += -debug_pp
 COMP_OPT += +v2k
-COMP_OPT += -lca
-COMP_OPT += -kdb
 COMP_OPT += -cm line+cond+branch+tgl
 COMP_OPT += -acc +vpi +lint=TFIPC-L
 
@@ -30,13 +28,26 @@ $(TB)/interface/spi_axi_intf.sv
 
 # AXI UVC files
 AXI_UVC = \
-$(TB)/axi_uvc/axi_transaction.sv \
-$(TB)/axi_uvc/axi_sequencer.sv \
-$(TB)/axi_uvc/axi_sequence.sv \
-$(TB)/axi_uvc/axi_driver.sv \
-$(TB)/axi_uvc/axi_monitor.sv \
-$(TB)/axi_uvc/axi_agent.sv \
-$(TB)/axi_uvc/axi_environment.sv
+$(TB)/spi_env/axi_uvc/axi_transaction.sv \
+$(TB)/spi_env/axi_uvc/axi_sequencer.sv \
+$(TB)/spi_env/axi_uvc/axi_sequence.sv \
+$(TB)/spi_env/axi_uvc/axi_driver.sv \
+$(TB)/spi_env/axi_uvc/axi_monitor.sv \
+$(TB)/spi_env/axi_uvc/axi_agent.sv
+
+SPI_UVC = \
+$(TB)/spi_env/spi_slave_uvc/spi_slave_transaction.sv \
+$(TB)/spi_env/spi_slave_uvc/spi_slave_sequencer.sv \
+$(TB)/spi_env/spi_slave_uvc/spi_slave_sequence.sv \
+$(TB)/spi_env/spi_slave_uvc/spi_slave_driver.sv \
+$(TB)/spi_env/spi_slave_uvc/spi_slave_monitor.sv \
+$(TB)/spi_env/spi_slave_uvc/spi_slave_agent.sv
+
+SPI_ENV = \
+$(TB)/spi_env/spi_mcsequencer.sv \
+$(TB)/spi_env/spi_axi_seq.sv \
+$(TB)/spi_env/spi_env.sv
+
 
 # Testbench files
 TB_FILES = \
@@ -56,6 +67,8 @@ compile:
 	$(DUT_FILES) \
 	$(INTF_FILES) \
     $(AXI_UVC) \
+	$(SPI_UVC) \
+	$(SPI_ENV) \
 	$(TB_FILES) \
 	-l compile.log
 
@@ -65,4 +78,4 @@ sim:
 
 # Clean build
 clean:
-	rm -rf simv csrc simv.daidir *.log *.vpd *.fsdb *.key verdiLog novas.* vc_hdrs.h wave.vcd
+	rm -rf simv csrc simv.daidir *.log *.vpd *.fsdb *.key verdiLog novas.* vc_hdrs.h wave.vcd simv.vdb
