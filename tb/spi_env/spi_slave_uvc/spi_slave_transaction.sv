@@ -11,7 +11,7 @@ class spi_slave_transaction extends uvm_sequence_item;
     endfunction
 
     logic [7:0] mosi;
-    logic [7:0] miso;
+    rand logic [7:0] miso;
     logic cs;
     logic clk_s;
 

@@ -1,0 +1,183 @@
+{
+    "reusePaths": {},
+    "Modules": {
+        "...MASTER...": {},
+        "vcs_paramclassrepository": {
+            "Compiled": "Yes",
+            "Compiled Times": 1
+        },
+        "std": {
+            "Compiled": "Yes",
+            "Compiled Times": 1
+        },
+        "_vcs_unit__4069597086": {
+            "Compiled": "Yes",
+            "Compiled Times": 1
+        },
+        "uvm_pkg": {
+            "Compiled": "Yes",
+            "Compiled Times": 1
+        },
+        "spi_axi_intf": {
+            "Compiled": "Yes",
+            "Compiled Times": 1
+        },
+        "_vcs_msglog": {
+            "Compiled": "Yes",
+            "Compiled Times": 1
+        },
+        "spi_lite_fifo": {
+            "Compiled": "Yes",
+            "Compiled Times": 1
+        },
+        "uvm_custom_install_recording": {
+            "Compiled": "Yes",
+            "Compiled Times": 1
+        },
+        "spi_lite": {
+            "Compiled": "Yes",
+            "Compiled Times": 1
+        },
+        "testbench_top": {
+            "Compiled": "Yes",
+            "Compiled Times": 1
+        }
+    },
+    "CompUnits": {
+        "hEeZs_d": {
+            "mod": "vcs_paramclassrepository",
+            "out": "hEeZs_d.o",
+            "bytes": 5403069,
+            "checksum": 0,
+            "mode": 4,
+            "archive": "archive.0/_36859_archive_1.a"
+        },
+        "zQBzV_d": {
+            "mod": "_vcs_msglog",
+            "out": "zQBzV_d.o",
+            "bytes": 10429,
+            "checksum": 0,
+            "mode": 4,
+            "archive": "archive.0/_36859_archive_1.a"
+        },
+        "FRRJr_d": {
+            "mod": "spi_lite_fifo",
+            "out": "FRRJr_d.o",
+            "bytes": 17026,
+            "checksum": 0,
+            "mode": 4,
+            "archive": "archive.0/_36859_archive_1.a"
+        },
+        "amcQw_d": {
+            "mod": "...MASTER...",
+            "out": "objs/amcQw_d.o",
+            "bytes": 8365,
+            "checksum": 0,
+            "mode": 4
+        },
+        "asJR9_d": {
+            "mod": "_vcs_unit__4069597086",
+            "out": "asJR9_d.o",
+            "bytes": 442923,
+            "checksum": 0,
+            "mode": 4,
+            "archive": "archive.0/_36859_archive_1.a"
+        },
+        "reYIK_d": {
+            "mod": "std",
+            "out": "reYIK_d.o",
+            "bytes": 34639,
+            "checksum": 0,
+            "mode": 4,
+            "archive": "archive.0/_36859_archive_1.a"
+        },
+        "nhiwz_d": {
+            "mod": "uvm_custom_install_recording",
+            "out": "nhiwz_d.o",
+            "bytes": 23857,
+            "checksum": 0,
+            "mode": 4,
+            "archive": "archive.0/_36859_archive_1.a"
+        },
+        "zr7M1_d": {
+            "mod": "uvm_pkg",
+            "out": "zr7M1_d.o",
+            "bytes": 3970645,
+            "checksum": 0,
+            "mode": 4,
+            "archive": "archive.0/_36859_archive_1.a"
+        },
+        "qjj9j_d": {
+            "mod": "spi_lite",
+            "out": "qjj9j_d.o",
+            "bytes": 112260,
+            "checksum": 0,
+            "mode": 4,
+            "archive": "archive.0/_36859_archive_1.a"
+        },
+        "WqdN8_d": {
+            "mod": "spi_axi_intf",
+            "out": "WqdN8_d.o",
+            "bytes": 18266,
+            "checksum": 0,
+            "mode": 4,
+            "archive": "archive.0/_36859_archive_1.a"
+        },
+        "utVZ3_d": {
+            "mod": "testbench_top",
+            "out": "utVZ3_d.o",
+            "bytes": 21850,
+            "checksum": 0,
+            "mode": 4,
+            "archive": "archive.0/_36859_archive_1.a"
+        }
+    },
+    "ObjArchives": [
+        {
+            "archive": "archive.0/_36859_archive_1.a",
+            "objects": [
+                [
+                    "hEeZs_d.o",
+                    5403069
+                ],
+                [
+                    "asJR9_d.o",
+                    442923
+                ],
+                [
+                    "reYIK_d.o",
+                    34639
+                ],
+                [
+                    "zr7M1_d.o",
+                    3970645
+                ],
+                [
+                    "zQBzV_d.o",
+                    10429
+                ],
+                [
+                    "nhiwz_d.o",
+                    23857
+                ],
+                [
+                    "qjj9j_d.o",
+                    112260
+                ],
+                [
+                    "FRRJr_d.o",
+                    17026
+                ],
+                [
+                    "WqdN8_d.o",
+                    18266
+                ],
+                [
+                    "utVZ3_d.o",
+                    21850
+                ]
+            ],
+            "size": 10054964
+        }
+    ]
+}

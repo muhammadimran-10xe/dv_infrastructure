@@ -25,7 +25,7 @@ class spi_base_test extends uvm_test;
         phase.raise_objection(this);
         vseq = spi_axi_seq::type_id::create("vseq", this);
         vseq.start(env.spi_mcseq);
-        #500;
+        #1000;
         phase.drop_objection(this);
 
     endtask

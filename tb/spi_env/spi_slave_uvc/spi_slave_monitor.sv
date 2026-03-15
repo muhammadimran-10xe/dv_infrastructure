@@ -25,15 +25,12 @@ class spi_slave_monitor extends uvm_monitor;
     `uvm_info(get_type_name(), "SPI monitor started", UVM_LOW)
     forever begin
         int byte_count = 0;
-        @(negedge vif.cs_o);
-        while(vif.cs_o == 1'b0) begin
             spi_slave_transaction trans = spi_slave_transaction::type_id::create("trans");
             bit [7:0]mosi = '0;
             bit [7:0]miso = '0;
             int i;
             for(i=7; i>=0; i--) begin
-                @(posedge vif.clk_o or posedge vif.cs_o);
-                if(vif.cs_o == 1'b1) break;
+                @(posedge vif.clk_o iff (vif.cs_o == 0));
                 mosi[i] = vif.mosi_o;
                 miso[i] = vif.miso_i;
             end
@@ -44,8 +41,8 @@ class spi_slave_monitor extends uvm_monitor;
             `uvm_info(get_type_name(), $sformatf("MOSI = %0h | MISO = %0h", mosi, miso), UVM_LOW)
         end
         
-    end
 
     endtask
+
 
 endclass

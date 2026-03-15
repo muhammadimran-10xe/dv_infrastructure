@@ -54,14 +54,14 @@ class axi_driver extends uvm_driver #(axi_transaction);
         vif.awaddr_i  <= trans.addr;
         vif.wvalid_i  <= 1;
         vif.wdata_i   <= trans.wdata;
-        vif.wstrb_i <= trans.wstrb;
-        @(posedge vif.clk_i iff (vif.awready_o && vif.wready_o));
+        vif.wstrb_i   <= trans.wstrb;
+        @(posedge vif.clk_i iff (vif.awvalid_i && vif.awready_o &&
+                                    vif.wvalid_i  && vif.wready_o));
         vif.awvalid_i <= 0;
         vif.wvalid_i  <= 0;
-        vif.bready_i <= 1;
+        vif.bready_i  <= 1;
         @(posedge vif.clk_i iff vif.bvalid_o);
-        @(posedge vif.clk_i);
-        vif.bready_i <= 0;
+        vif.bready_i  <= 0;
         `uvm_info("AXI DRV", "Write Transaction Driven", UVM_LOW)
     endtask
 
@@ -74,7 +74,6 @@ class axi_driver extends uvm_driver #(axi_transaction);
         vif.araddr_i <= '0;
         vif.rready_i  <= 1;
         @(posedge vif.clk_i iff (vif.rvalid_o && vif.rready_i));
-        @(posedge vif.clk_i);
         vif.rready_i <= 0;
         `uvm_info("AXI DRV", "Read Transaction Driven", UVM_LOW)
 

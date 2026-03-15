@@ -19,6 +19,7 @@ class spi_slave_driver extends uvm_driver #(spi_slave_transaction);
         forever begin
             spi_slave_transaction trans = spi_slave_transaction::type_id::create("trans");
             seq_item_port.get_next_item(trans);
+            wait(vif.cs_o == 1'b0);
             drive_miso(trans);
             seq_item_port.item_done();
         end
@@ -30,16 +31,14 @@ class spi_slave_driver extends uvm_driver #(spi_slave_transaction);
     endfunction
 
     task drive_miso(spi_slave_transaction trans);
-        @(negedge vif.cs_o);
-        `uvm_info(get_type_name, "CS deasserted", UVM_LOW)
-        for (int i=0; i<=7; i++) begin
-            @(negedge vif.clk_o);
-            vif.miso_i <= trans.miso[i];
-            `uvm_info(get_type_name(), $sformatf("MISO[%0d] = %0b", i, trans.miso[i]), UVM_LOW)
+        if(vif.cs_o == 1'b0) begin
+            for (int i=7; i>=0; i--) begin
+                vif.miso_i <= trans.miso[i];
+                @(posedge vif.clk_o iff (vif.cs_o == 0));
+                // `uvm_info(get_type_name(), $sformatf("MISO [%0d] = [%0b]",i, vif.miso_i), UVM_LOW )
+            end
+            `uvm_info(get_type_name(), "MISO driven ", UVM_LOW)
         end
-        // @(posedge vif.cs_o);
-        // vif.miso_i <= 1'b0;
-        `uvm_info(get_type_name(), "MISO driven ", UVM_LOW)
     endtask
 
 endclass

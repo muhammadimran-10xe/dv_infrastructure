@@ -29,16 +29,18 @@ class axi_simple_seq extends uvm_sequence #(axi_transaction);
     task body();
         `uvm_info(get_type_name(), "Software Reset (SRR=0x0A)", UVM_LOW)
         axi_write(`SPI_SRR, 32'h0000_000A);   // SRR at 0x40
-
+        axi_write(`SPI_DGIER,  32'h8000_0000);   // global interrupt enable
+        axi_write(`SPI_IPIER,  32'h0000_0004);   // enable TX_EMPTY interrupt
         `uvm_info(get_type_name(),"Configure CR=0x186 (SPE|MASTER|INHIBIT)", UVM_LOW)
         axi_write(`SPI_CR, 32'h0000_0186);   // CR at 0x60
 
         axi_write(`SPI_SSR, 32'h0000_0000);
         `uvm_info(get_type_name(), "Load TX FIFO (DTR=0xA)", UVM_LOW)
-        axi_write(`SPI_DTR, 32'h0000_000A);   // DTR at 0x68
+        axi_write(`SPI_DTR, 32'h0000_00AA);   // DTR at 0x68
 
         `uvm_info(get_type_name(), "Load TX FIFO (DTR=0xA)", UVM_LOW)
-        axi_write(`SPI_DTR, 32'h0000_0088);   // DTR at 0x68
+        axi_write(`SPI_DTR, 32'h0000_00FF);   // DTR at 0x68
+
         axi_write(`SPI_CR, 32'h0000_0086);   // CR at 0x60
 
         `uvm_info(get_type_name(), "=== Transfer complete ===", UVM_LOW)

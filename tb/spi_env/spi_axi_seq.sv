@@ -14,10 +14,9 @@ class spi_axi_seq extends uvm_sequence;
       axi_seq = axi_simple_seq::type_id::create("axi_seq");
       spi_seq = spi_slave_sequence::type_id::create("spi_seq");
         fork
-            axi_seq.start(p_sequencer.axi_seqr);
             spi_seq.start(p_sequencer.spi_slave_seqr);
+            axi_seq.start(p_sequencer.axi_seqr);
         join
-      #200;
     endtask
 
 endclass
