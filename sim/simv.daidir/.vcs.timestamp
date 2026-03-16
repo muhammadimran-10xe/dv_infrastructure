@@ -410,7 +410,7 @@
 0 /usr/synopsys/vcs-L-2016.06//etc/systemverilog/spi_lite_defs.v
 0 /usr/synopsys/vcs-L-2016.06//etc/uvm/vcs/spi_lite_defs.v
 0 /usr/synopsys/vcs-L-2016.06//etc/uvm/spi_lite_defs.v
-68
+71
 +cli+1
 +define+UVM_DIRECTC_OPTS
 +define+UVM_VCS_RECORD
@@ -456,21 +456,24 @@
 ../dut/spi_lite.v
 ../dut/spi_lite_defs.v
 ../tb/interface/spi_axi_intf.sv
-../tb/spi_env/axi_uvc/axi_agent.sv
-../tb/spi_env/axi_uvc/axi_driver.sv
-../tb/spi_env/axi_uvc/axi_monitor.sv
-../tb/spi_env/axi_uvc/axi_sequence.sv
-../tb/spi_env/axi_uvc/axi_sequencer.sv
-../tb/spi_env/axi_uvc/axi_transaction.sv
+../tb/spi_env/axi_agent/axi_agent.sv
+../tb/spi_env/axi_agent/axi_config.sv
+../tb/spi_env/axi_agent/axi_driver.sv
+../tb/spi_env/axi_agent/axi_monitor.sv
+../tb/spi_env/axi_agent/axi_sequence.sv
+../tb/spi_env/axi_agent/axi_sequencer.sv
+../tb/spi_env/axi_agent/axi_transaction.sv
+../tb/spi_env/scoreboard.sv
 ../tb/spi_env/spi_axi_seq.sv
 ../tb/spi_env/spi_env.sv
 ../tb/spi_env/spi_mcsequencer.sv
-../tb/spi_env/spi_slave_uvc/spi_slave_agent.sv
-../tb/spi_env/spi_slave_uvc/spi_slave_driver.sv
-../tb/spi_env/spi_slave_uvc/spi_slave_monitor.sv
-../tb/spi_env/spi_slave_uvc/spi_slave_sequence.sv
-../tb/spi_env/spi_slave_uvc/spi_slave_sequencer.sv
-../tb/spi_env/spi_slave_uvc/spi_slave_transaction.sv
+../tb/spi_env/spi_slave_agent/spi_slave_agent.sv
+../tb/spi_env/spi_slave_agent/spi_slave_config.sv
+../tb/spi_env/spi_slave_agent/spi_slave_driver.sv
+../tb/spi_env/spi_slave_agent/spi_slave_monitor.sv
+../tb/spi_env/spi_slave_agent/spi_slave_sequence.sv
+../tb/spi_env/spi_slave_agent/spi_slave_sequencer.sv
+../tb/spi_env/spi_slave_agent/spi_slave_transaction.sv
 ../tb/test.sv
 ../tb/testbench_top.sv
 /usr/synopsys/vcs-L-2016.06//etc/uvm/uvm_pkg.sv
@@ -511,7 +514,7 @@ LESSOPEN=| /usr/bin/lesspipe %s
 LESSCLOSE=/usr/bin/lesspipe %s %s
 LC_ALL=C
 0
-161
+164
 1464145497 /usr/synopsys/vcs-L-2016.06//etc/uvm/vcs/uvm_vcs_record_interface.sv
 1464145497 /usr/synopsys/vcs-L-2016.06//etc/uvm/vcs/uvm_vcs_recorder.svh
 1464145497 /usr/synopsys/vcs-L-2016.06//etc/uvm/vcs/uvm_msglog_report_server.sv
@@ -649,24 +652,27 @@ LC_ALL=C
 1464145496 /usr/synopsys/vcs-L-2016.06//etc/uvm/macros/uvm_message_defines.svh
 1464145497 /usr/synopsys/vcs-L-2016.06//etc/uvm/macros/uvm_version_defines.svh
 1464148931 /usr/synopsys/vcs-L-2016.06//etc/uvm/uvm_macros.svh
-1773395818 ../tb/testbench_top.sv
-1773482244 ../tb/test.sv
-1773385946 ../tb/spi_env/spi_env.sv
-1773517465 ../tb/spi_env/spi_axi_seq.sv
+1773597767 ../tb/testbench_top.sv
+1773647082 ../tb/test.sv
+1773644189 ../tb/spi_env/scoreboard.sv
+1773653923 ../tb/spi_env/spi_env.sv
+1773653009 ../tb/spi_env/spi_axi_seq.sv
+1773655122 ../tb/spi_env/axi_agent/axi_agent.sv
+1773655999 ../tb/spi_env/axi_agent/axi_monitor.sv
+1773578840 ../tb/spi_env/axi_agent/axi_driver.sv
+1773658665 ../tb/spi_env/axi_agent/axi_sequence.sv
 1773393062 ../tb/spi_env/spi_mcsequencer.sv
-1773384532 ../tb/spi_env/spi_slave_uvc/spi_slave_agent.sv
-1773516152 ../tb/spi_env/spi_slave_uvc/spi_slave_monitor.sv
-1773517533 ../tb/spi_env/spi_slave_uvc/spi_slave_driver.sv
-1773566409 ../tb/spi_env/spi_slave_uvc/spi_slave_sequence.sv
-1773383087 ../tb/spi_env/spi_slave_uvc/spi_slave_sequencer.sv
-1773413903 ../tb/spi_env/spi_slave_uvc/spi_slave_transaction.sv
-1773063477 ../tb/spi_env/axi_uvc/axi_agent.sv
-1773314797 ../tb/spi_env/axi_uvc/axi_monitor.sv
-1773480003 ../tb/spi_env/axi_uvc/axi_driver.sv
-1773568845 ../tb/spi_env/axi_uvc/axi_sequence.sv
-1773209987 ../tb/spi_env/axi_uvc/axi_sequencer.sv
-1773312440 ../tb/spi_env/axi_uvc/axi_transaction.sv
-1773394421 ../tb/interface/spi_axi_intf.sv
+1773657124 ../tb/spi_env/axi_agent/axi_sequencer.sv
+1773578605 ../tb/spi_env/axi_agent/axi_config.sv
+1773644996 ../tb/spi_env/axi_agent/axi_transaction.sv
+1773649523 ../tb/spi_env/spi_slave_agent/spi_slave_agent.sv
+1773658908 ../tb/spi_env/spi_slave_agent/spi_slave_monitor.sv
+1773659122 ../tb/spi_env/spi_slave_agent/spi_slave_driver.sv
+1773659136 ../tb/spi_env/spi_slave_agent/spi_slave_sequence.sv
+1773649069 ../tb/spi_env/spi_slave_agent/spi_slave_sequencer.sv
+1773585722 ../tb/spi_env/spi_slave_agent/spi_slave_config.sv
+1773653003 ../tb/spi_env/spi_slave_agent/spi_slave_transaction.sv
+1773586853 ../tb/interface/spi_axi_intf.sv
 1773040093 ../dut/spi_lite.v
 1773040097 ../dut/spi_lite_defs.v
 1464145497 /usr/synopsys/vcs-L-2016.06//etc/uvm/vcs/uvm_custom_install_vcs_recorder.sv
@@ -679,4 +685,4 @@ LC_ALL=C
 1464147802 /usr/synopsys/vcs-L-2016.06/linux64/lib/libvirsim.so
 1464147272 /usr/synopsys/vcs-L-2016.06/linux64/lib/liberrorinf.so
 1464147248 /usr/synopsys/vcs-L-2016.06/linux64/lib/libsnpsmalloc.so
-1773568863 simv.daidir
+1773659159 simv.daidir

@@ -144,22 +144,25 @@
       <fileinfo name="../dut/spi_lite_defs.v"  id="139"  />
       <fileinfo name="../dut/spi_lite.v"  id="140"  />
       <fileinfo name="../tb/interface/spi_axi_intf.sv"  id="141"  />
-      <fileinfo name="../tb/spi_env/axi_uvc/axi_transaction.sv"  id="142"  />
-      <fileinfo name="../tb/spi_env/axi_uvc/axi_sequencer.sv"  id="143"  />
-      <fileinfo name="../tb/spi_env/axi_uvc/axi_sequence.sv"  id="144"  />
-      <fileinfo name="../tb/spi_env/axi_uvc/axi_driver.sv"  id="145"  />
-      <fileinfo name="../tb/spi_env/axi_uvc/axi_monitor.sv"  id="146"  />
-      <fileinfo name="../tb/spi_env/axi_uvc/axi_agent.sv"  id="147"  />
-      <fileinfo name="../tb/spi_env/spi_slave_uvc/spi_slave_transaction.sv"  id="148"  />
-      <fileinfo name="../tb/spi_env/spi_slave_uvc/spi_slave_sequencer.sv"  id="149"  />
-      <fileinfo name="../tb/spi_env/spi_slave_uvc/spi_slave_sequence.sv"  id="150"  />
-      <fileinfo name="../tb/spi_env/spi_slave_uvc/spi_slave_driver.sv"  id="151"  />
-      <fileinfo name="../tb/spi_env/spi_slave_uvc/spi_slave_monitor.sv"  id="152"  />
-      <fileinfo name="../tb/spi_env/spi_slave_uvc/spi_slave_agent.sv"  id="153"  />
-      <fileinfo name="../tb/spi_env/spi_mcsequencer.sv"  id="154"  />
-      <fileinfo name="../tb/spi_env/spi_axi_seq.sv"  id="155"  />
-      <fileinfo name="../tb/spi_env/spi_env.sv"  id="156"  />
-      <fileinfo name="../tb/test.sv"  id="157"  />
-      <fileinfo name="../tb/testbench_top.sv"  id="158"  />
-      <fileinfo name=""  id="159"  />
+      <fileinfo name="../tb/spi_env/spi_slave_agent/spi_slave_transaction.sv"  id="142"  />
+      <fileinfo name="../tb/spi_env/spi_slave_agent/spi_slave_config.sv"  id="143"  />
+      <fileinfo name="../tb/spi_env/spi_slave_agent/spi_slave_sequencer.sv"  id="144"  />
+      <fileinfo name="../tb/spi_env/spi_slave_agent/spi_slave_sequence.sv"  id="145"  />
+      <fileinfo name="../tb/spi_env/spi_slave_agent/spi_slave_driver.sv"  id="146"  />
+      <fileinfo name="../tb/spi_env/spi_slave_agent/spi_slave_monitor.sv"  id="147"  />
+      <fileinfo name="../tb/spi_env/spi_slave_agent/spi_slave_agent.sv"  id="148"  />
+      <fileinfo name="../tb/spi_env/axi_agent/axi_transaction.sv"  id="149"  />
+      <fileinfo name="../tb/spi_env/axi_agent/axi_config.sv"  id="150"  />
+      <fileinfo name="../tb/spi_env/axi_agent/axi_sequencer.sv"  id="151"  />
+      <fileinfo name="../tb/spi_env/spi_mcsequencer.sv"  id="152"  />
+      <fileinfo name="../tb/spi_env/axi_agent/axi_sequence.sv"  id="153"  />
+      <fileinfo name="../tb/spi_env/axi_agent/axi_driver.sv"  id="154"  />
+      <fileinfo name="../tb/spi_env/axi_agent/axi_monitor.sv"  id="155"  />
+      <fileinfo name="../tb/spi_env/axi_agent/axi_agent.sv"  id="156"  />
+      <fileinfo name="../tb/spi_env/spi_axi_seq.sv"  id="157"  />
+      <fileinfo name="../tb/spi_env/spi_env.sv"  id="158"  />
+      <fileinfo name="../tb/spi_env/scoreboard.sv"  id="159"  />
+      <fileinfo name="../tb/test.sv"  id="160"  />
+      <fileinfo name="../tb/testbench_top.sv"  id="161"  />
+      <fileinfo name=""  id="162"  />
     </srcinfo>

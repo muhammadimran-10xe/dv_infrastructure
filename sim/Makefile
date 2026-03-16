@@ -28,25 +28,28 @@ $(TB)/interface/spi_axi_intf.sv
 
 # AXI UVC files
 AXI_UVC = \
-$(TB)/spi_env/axi_uvc/axi_transaction.sv \
-$(TB)/spi_env/axi_uvc/axi_sequencer.sv \
-$(TB)/spi_env/axi_uvc/axi_sequence.sv \
-$(TB)/spi_env/axi_uvc/axi_driver.sv \
-$(TB)/spi_env/axi_uvc/axi_monitor.sv \
-$(TB)/spi_env/axi_uvc/axi_agent.sv
+$(TB)/spi_env/axi_agent/axi_transaction.sv \
+$(TB)/spi_env/axi_agent/axi_config.sv \
+$(TB)/spi_env/axi_agent/axi_sequencer.sv \
+$(TB)/spi_env/spi_mcsequencer.sv \
+$(TB)/spi_env/axi_agent/axi_sequence.sv \
+$(TB)/spi_env/axi_agent/axi_driver.sv \
+$(TB)/spi_env/axi_agent/axi_monitor.sv \
+$(TB)/spi_env/axi_agent/axi_agent.sv
 
 SPI_UVC = \
-$(TB)/spi_env/spi_slave_uvc/spi_slave_transaction.sv \
-$(TB)/spi_env/spi_slave_uvc/spi_slave_sequencer.sv \
-$(TB)/spi_env/spi_slave_uvc/spi_slave_sequence.sv \
-$(TB)/spi_env/spi_slave_uvc/spi_slave_driver.sv \
-$(TB)/spi_env/spi_slave_uvc/spi_slave_monitor.sv \
-$(TB)/spi_env/spi_slave_uvc/spi_slave_agent.sv
+$(TB)/spi_env/spi_slave_agent/spi_slave_transaction.sv \
+$(TB)/spi_env/spi_slave_agent/spi_slave_config.sv \
+$(TB)/spi_env/spi_slave_agent/spi_slave_sequencer.sv \
+$(TB)/spi_env/spi_slave_agent/spi_slave_sequence.sv \
+$(TB)/spi_env/spi_slave_agent/spi_slave_driver.sv \
+$(TB)/spi_env/spi_slave_agent/spi_slave_monitor.sv \
+$(TB)/spi_env/spi_slave_agent/spi_slave_agent.sv
 
 SPI_ENV = \
-$(TB)/spi_env/spi_mcsequencer.sv \
 $(TB)/spi_env/spi_axi_seq.sv \
-$(TB)/spi_env/spi_env.sv
+$(TB)/spi_env/spi_env.sv \
+$(TB)/spi_env/scoreboard.sv
 
 
 # Testbench files
@@ -66,8 +69,8 @@ compile:
 	+incdir+$(TB)/interface \
 	$(DUT_FILES) \
 	$(INTF_FILES) \
-    $(AXI_UVC) \
 	$(SPI_UVC) \
+    $(AXI_UVC) \
 	$(SPI_ENV) \
 	$(TB_FILES) \
 	-l compile.log
