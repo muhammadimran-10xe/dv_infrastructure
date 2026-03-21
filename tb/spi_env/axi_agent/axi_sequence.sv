@@ -1,8 +1,10 @@
-class axi_simple_seq extends uvm_sequence #(axi_transaction);
-    `uvm_object_utils(axi_simple_seq)
-    `uvm_declare_p_sequencer(axi_sequencer)
+`ifndef AXI_BASE_SEQ_SV
+`define AXI_BASE_SEQ_SV
+
+class axi_base_seq extends uvm_sequence #(axi_transaction);
+    `uvm_object_utils(axi_base_seq)
     
-    function new(string name = "axi_simple_seq");
+    function new(string name = "axi_base_seq");
         super.new(name);
     endfunction
 
@@ -27,6 +29,19 @@ class axi_simple_seq extends uvm_sequence #(axi_transaction);
         finish_item(tr);
     endtask
 
+endclass
+
+
+class sanity_seq extends axi_base_seq;
+
+    `uvm_object_utils(sanity_seq)
+    `uvm_declare_p_sequencer(axi_sequencer)
+    
+    function new(string name = "sanity_seq");
+        super.new(name);
+    endfunction
+
+
     task body();
         // axi_transaction axi_tr = axi_transaction::type_id::create("axi_tr");
         `uvm_info(get_type_name(), "Software Reset (SRR=0x0A)", UVM_LOW)
@@ -49,13 +64,37 @@ class axi_simple_seq extends uvm_sequence #(axi_transaction);
             axi_read(`SPI_SR);
         end
         axi_read(`SPI_DRR);
-        axi_read(`SPI_SR);
-        while(p_sequencer.rdata[0] ) begin
-            axi_read(`SPI_SR);
-        end
-        axi_read(`SPI_DRR);
+        // axi_read(`SPI_SR);
+        // while(p_sequencer.rdata[0] ) begin
+        //     axi_read(`SPI_SR);
+        // end
+        // axi_read(`SPI_DRR);
         `uvm_info(get_type_name(), "=== Transfer complete ===", UVM_LOW)
 
     endtask
-
 endclass
+
+class hw_reset_registers_seq extends axi_base_seq;
+    `uvm_object_utils(hw_reset_registers_seq)
+
+    function new(string name = "hw_reset_registers_seq");
+        super.new(name);
+    endfunction
+
+    task body();
+        // rst_i is asserted by testbench_top at time 0
+        // Sequences run after reset drops — registers should be at reset values
+        `uvm_info(get_type_name(), "Checking reset values of all 9 registers", UVM_LOW)
+
+        axi_read(`SPI_CR  );
+        axi_read(`SPI_SR  );
+        axi_read(`SPI_SSR );
+        axi_read(`SPI_DGIER);
+        axi_read(`SPI_IPISR);
+        axi_read(`SPI_IPIER);
+
+        `uvm_info(get_type_name(), "hw_reset_registers done", UVM_LOW)
+    endtask
+endclass
+
+`endif

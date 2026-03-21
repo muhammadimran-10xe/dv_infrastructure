@@ -26,6 +26,7 @@ typedef enum {WRITE, READ} spi_trans_type;
     logic [DATA_WIDTH:0] rdata;
     logic [1:0] rresp;
     logic [1:0] wresp;
+    // logic awvalid;
 
     constraint valid_addr {
         addr inside {32'h1C, 32'h20, 32'h28, 32'h40,

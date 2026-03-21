@@ -50,7 +50,7 @@ end
 
 initial begin
     uvm_config_db #(virtual spi_axi_intf)::set(null, "*", "vif", intf);
-    run_test("spi_base_test");   
+    run_test();   
 end
 initial begin
     #2_000_000;

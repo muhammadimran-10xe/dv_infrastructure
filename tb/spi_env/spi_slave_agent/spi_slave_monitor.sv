@@ -4,7 +4,7 @@ class spi_slave_monitor extends uvm_monitor;
 
     virtual spi_axi_intf vif;
     spi_slave_config cfg;
-    uvm_analysis_port#(spi_slave_transaction) ap;
+    uvm_analysis_port#(spi_slave_transaction) ap_mon;
 
     function new(string name = "spi_slave_monitor", uvm_component parent);
         super.new(name, parent);
@@ -12,7 +12,7 @@ class spi_slave_monitor extends uvm_monitor;
 
     function void build_phase(uvm_phase phase);
         super.build_phase(phase);
-        ap = new("ap", this);
+        ap_mon = new("ap_mon", this);
         if (!uvm_config_db #(spi_slave_config)::get(this, "", "spi_slave_cfg", cfg))
             `uvm_fatal("[SPI_MON]", "spi_slave_config not found")
         vif = cfg.vif;
@@ -44,7 +44,7 @@ class spi_slave_monitor extends uvm_monitor;
             trans.miso = miso;
             trans.cs = vif.cs_o;
             byte_count++;
-            ap.write(trans);
+            ap_mon.write(trans);
             `uvm_info(get_type_name(), $sformatf("MOSI = %0h | MISO = %0h", mosi, miso), UVM_LOW)
         end
         

@@ -7,7 +7,7 @@ class spi_slave_config extends uvm_object;
         `uvm_field_enum(uvm_active_passive_enum, is_active, UVM_ALL_ON)
     `uvm_object_utils_end
 
-    int unsigned data_width = 8;    // bits per transfer — matches DUT C_DATA_WIDTH
+    int unsigned data_width = 8;    // bits per transfer 
 
     uvm_active_passive_enum is_active    = UVM_ACTIVE;
     virtual spi_axi_intf vif;

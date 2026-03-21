@@ -7,8 +7,10 @@ class axi_driver extends uvm_driver #(axi_transaction);
 
     virtual spi_axi_intf vif;
     axi_config   cfg;
+    // uvm_analysis_port #(axi_transaction) ap_drv;
     function void build_phase(uvm_phase phase);
         super.build_phase(phase);
+        // ap_drv = new("ap_drv", this);
         if (!uvm_config_db #(axi_config)::get(this, "", "axi_cfg", cfg))
             `uvm_fatal("[AXI_DRV]", "axi_config not found in config_db")
         vif = cfg.vif;
@@ -27,7 +29,7 @@ class axi_driver extends uvm_driver #(axi_transaction);
             else
                 drive_read(trans);
             seq_item_port.item_done();
-            trans.print();
+            // trans.print();
         end
     endtask
 

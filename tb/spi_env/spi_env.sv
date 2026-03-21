@@ -9,7 +9,7 @@ class spi_env extends uvm_env;
     spi_slave_agent spi_slave;
 
     spi_mcsequencer spi_mcseq;
-
+    spi_scoreboard spi_scb;
     axi_config        axi_cfg;
     spi_slave_config  spi_slave_cfg;
 
@@ -39,6 +39,7 @@ class spi_env extends uvm_env;
         spi_slave = spi_slave_agent::type_id::create("spi_slave", this);
 
         spi_mcseq = spi_mcsequencer::type_id::create("spi_mcseq", this);
+        spi_scb = spi_scoreboard::type_id::create("spi_scb", this);
 
         `uvm_info(get_type_name(), "Build phase of spi_env is executed", UVM_HIGH)
 
@@ -48,7 +49,10 @@ class spi_env extends uvm_env;
         super.connect_phase(phase);
         spi_mcseq.spi_slave_seqr = spi_slave.seqr;
         spi_mcseq.axi_seqr = axi.seqr;
-        axi.mon.ap.connect(axi.seqr.mon2seq_imp);
+        axi.mon.ap_mon.connect(axi.seqr.mon2seq_imp);
+        // axi.ap_drv.connect(spi_scb.axi_drv2scb_imp);
+        axi.ap_mon.connect(spi_scb.axi_mon2scb_imp);
+        spi_slave.mon.ap_mon.connect(spi_scb.spi_mon2scb_imp);
     endfunction
 
     function void start_of_simulation_phase(uvm_phase phase);

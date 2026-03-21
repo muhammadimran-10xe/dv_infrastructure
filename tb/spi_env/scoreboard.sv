@@ -1,21 +1,22 @@
 `ifndef SPI_SCOREBOARD_SV
 `define SPI_SCOREBOARD_SV
 
-`uvm_analysis_imp_decl(_axi)
+// `uvm_analysis_imp_decl(_drv)
+`uvm_analysis_imp_decl(_mon)
 `uvm_analysis_imp_decl(_spi)
 
-class spi_scoreboard extends uvm_scoreboard;
+class spi_scoreboard extends uvm_scoreboard#(axi_transaction);
 
     `uvm_component_utils(spi_scoreboard)
 
-    uvm_analysis_imp_axi #(axi_transaction,       spi_scoreboard) axi_export;
-    uvm_analysis_imp_spi #(spi_slave_transaction, spi_scoreboard) spi_export;
+    spi_reference_model         ref_model;
+    // uvm_analysis_imp_drv #(axi_transaction,       spi_scoreboard) axi_drv2scb_imp;
+    uvm_analysis_imp_mon #(axi_transaction,       spi_scoreboard) axi_mon2scb_imp;
 
-    spi_slave_transaction spi_mosi_q[$];
-    spi_slave_transaction spi_miso_q[$];
-    axi_transaction       dtr_q[$];
-    axi_transaction       drr_q[$];
+    uvm_analysis_imp_spi #(spi_slave_transaction, spi_scoreboard) spi_mon2scb_imp;
 
+    // axi_transaction axi_trans;
+    // spi_slave_transaction spi_trans;
     int pass_cnt = 0;
     int fail_cnt = 0;
 
@@ -26,18 +27,25 @@ class spi_scoreboard extends uvm_scoreboard;
 
     function void build_phase(uvm_phase phase);
         super.build_phase(phase);
-        axi_export = new("axi_export", this);
-        spi_export = new("spi_export", this);
+        // axi_drv2scb_imp = new("axi_drv2scb_imp", this);
+        axi_mon2scb_imp = new("axi_mon2scb_imp", this);
+        spi_mon2scb_imp = new("spi_mon2scb_imp", this);
+        ref_model = spi_reference_model::type_id::create("ref_model", this);
     endfunction
 
+    // Logic: AXI Monitor sends a write -> Tell Ref Model to predict
+    function void write_mon(axi_transaction tr);
+        if (tr.trans_type == axi_transaction::WRITE) begin
+            m_ref_model.predict_axi_write(tr);
+        end
+    endfunction
+
+    // Logic: SPI Monitor sends data -> Get prediction from Ref Model & Compare
     function void write_spi(spi_slave_transaction tr);
-
+        byte expected = m_ref_model.get_expected_mosi();
+        if (tr.mosi_data !== expected) 
+            `uvm_error("FAIL", $sformatf("Exp: %h Act: %h", expected, tr.mosi_data))
     endfunction
-
-    function void write_axi(axi_transaction tr);
-
-    endfunction
-
 
     function void report_phase(uvm_phase phase);
         `uvm_info("[SCBD]", $sformatf(

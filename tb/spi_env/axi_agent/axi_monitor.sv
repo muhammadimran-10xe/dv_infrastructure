@@ -4,7 +4,7 @@ class axi_monitor extends uvm_monitor;
 
     virtual spi_axi_intf vif;
     axi_config   cfg;
-    uvm_analysis_port#(axi_transaction) ap;
+    uvm_analysis_port#(axi_transaction) ap_mon;
 
     function new(string name = "axi_monitor", uvm_component parent);
         super.new(name, parent);
@@ -12,7 +12,7 @@ class axi_monitor extends uvm_monitor;
 
     function void build_phase(uvm_phase phase);
         super.build_phase(phase);
-        ap = new("ap", this);
+        ap_mon = new("ap_mon", this);
         if (!uvm_config_db #(axi_config)::get(this, "", "axi_cfg", cfg))
             `uvm_fatal("[AXI_MON]", "axi_config not found")
         vif = cfg.vif;
@@ -51,7 +51,7 @@ class axi_monitor extends uvm_monitor;
             end
             @(negedge vif.clk_i iff (vif.bvalid_o && vif.bready_i));
             trans.wresp = vif.bresp_o;
-            ap.write(trans);
+            ap_mon.write(trans);
             trans.print();
             `uvm_info("[MON]", "MON Write Task", UVM_LOW)
         end
@@ -67,7 +67,7 @@ class axi_monitor extends uvm_monitor;
             @(negedge vif.clk_i iff (vif.rvalid_o && vif.rready_i));
             trans.rdata = vif.rdata_o;
             trans.rresp = vif.rresp_o;
-            ap.write(trans);
+            ap_mon.write(trans);
             trans.print();
             `uvm_info("[MON]", "MON Read Task", UVM_LOW)
         end
