@@ -23,6 +23,21 @@ class base_vseq extends uvm_sequence;
 
 endclass
 
+class srr_vseq extends base_vseq;
+
+    `uvm_object_utils(srr_vseq);
+
+    function new(string name = "srr_vseq");
+        super.new(name);
+    endfunction
+
+    task body();
+        srr_seq seq;
+        seq = srr_seq::type_id::create("seq");
+        run_axi_seq(seq);   // no SPI bus activity needed
+    endtask
+endclass
+
 class sanity_vseq extends base_vseq;
 
     `uvm_object_utils(sanity_vseq)

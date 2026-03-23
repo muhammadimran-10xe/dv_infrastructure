@@ -1,7 +1,6 @@
 # Directory definitions
 RTL := ../dut
 TB  := ../tb
-RM  := ../ref_model
 SIM := .
 
 TEST ?= spi_base_test
@@ -17,7 +16,7 @@ COMP_OPT += -acc +vpi +lint=TFIPC-L
 
 # Simulation options
 SIM_OPT += +UVM_TESTNAME=$(TEST)
-SIM_OPT += +UVM_VERBOSITY=UVM_MEDIUM
+SIM_OPT += +UVM_VERBOSITY=UVM_HIGH
 SIM_OPT += +vcs+initreg+0
 
 # DUT files
@@ -50,12 +49,13 @@ $(TB)/spi_env/spi_slave_agent/spi_slave_monitor.sv \
 $(TB)/spi_env/spi_slave_agent/spi_slave_agent.sv
 
 SPI_ENV = \
-$(RM)/dpi_pkg.sv \
-$(TB)/spi_env/spi_env_pkg.sv
+$(TB)/spi_env/spi_axi_seq.sv \
+$(TB)/spi_env/spi_refrence_model.sv \
+$(TB)/spi_env/scoreboard.sv \
+$(TB)/spi_env/spi_env.sv
 
 REF_MODEL = \
-$(RM)/spi_lite.c \
-$(RM)/ref_wrapper.c
+
 
 # Testbench files
 TB_FILES = \
@@ -72,13 +72,10 @@ compile:
 	+incdir+$(RTL) \
 	+incdir+$(TB) \
 	+incdir+$(TB)/interface \
-	+incdir+$(TB)/spi_env \
-	+incdir+$(RM) \
 	$(DUT_FILES) \
 	$(INTF_FILES) \
 	$(SPI_UVC) \
     $(AXI_UVC) \
-	$(REF_MODEL) \
 	$(SPI_ENV) \
 	$(TB_FILES) \
 	-l compile.log

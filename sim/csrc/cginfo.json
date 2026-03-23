@@ -1,0 +1,155 @@
+{
+    "MlibObjs": {},
+    "PrevCompiledModules": {},
+    "CompileStrategy": "fullobj",
+    "CurCompileUdps": {},
+    "NameTable": {
+        "vcs_paramclassrepository": [
+            "vcs_paramclassrepository",
+            "hEeZs",
+            "module"
+        ],
+        "std": [
+            "std",
+            "reYIK",
+            "module"
+        ],
+        "_vcs_unit__4069597086": [
+            "_vcs_unit__4069597086",
+            "asJR9",
+            "module"
+        ],
+        "uvm_custom_install_recording": [
+            "uvm_custom_install_recording",
+            "nhiwz",
+            "module"
+        ],
+        "_vcs_msglog": [
+            "_vcs_msglog",
+            "zQBzV",
+            "module"
+        ],
+        "uvm_pkg": [
+            "uvm_pkg",
+            "zr7M1",
+            "module"
+        ],
+        "spi_lite": [
+            "spi_lite",
+            "qjj9j",
+            "module"
+        ],
+        "spi_lite_fifo": [
+            "spi_lite_fifo",
+            "FRRJr",
+            "module"
+        ],
+        "spi_axi_intf": [
+            "spi_axi_intf",
+            "WqdN8",
+            "module"
+        ],
+        "testbench_top": [
+            "testbench_top",
+            "utVZ3",
+            "module"
+        ],
+        "...MASTER...": [
+            "SIM",
+            "amcQw",
+            "module"
+        ]
+    },
+    "stat": {
+        "Frontend(%)": 66.40459429665097,
+        "ru_self_cgstart": {
+            "ru_maxrss_kb": 161132,
+            "ru_utime_sec": 4.7852160000000001,
+            "ru_stime_sec": 0.15887399999999999,
+            "ru_minflt": 45419,
+            "ru_majflt": 0,
+            "ru_nvcsw": 26,
+            "ru_nivcsw": 47
+        },
+        "totalObjSize": 11121586,
+        "quadSpeed": 46372.146971254093,
+        "ru_childs_cgstart": {
+            "ru_maxrss_kb": 66588,
+            "ru_utime_sec": 0.0,
+            "ru_stime_sec": 0.011823,
+            "ru_minflt": 489,
+            "ru_majflt": 0,
+            "ru_nvcsw": 2,
+            "ru_nivcsw": 2
+        },
+        "nQuads": 112264,
+        "ru_self_end": {
+            "ru_maxrss_kb": 165264,
+            "ru_utime_sec": 7.2061520000000003,
+            "ru_stime_sec": 0.27984999999999999,
+            "ru_minflt": 49052,
+            "ru_majflt": 0,
+            "ru_nvcsw": 27,
+            "ru_nivcsw": 57
+        },
+        "nMops": 312862,
+        "ru_childs_end": {
+            "ru_maxrss_kb": 66588,
+            "ru_utime_sec": 0.0,
+            "ru_stime_sec": 0.011823,
+            "ru_minflt": 489,
+            "ru_majflt": 0,
+            "ru_nvcsw": 2,
+            "ru_nivcsw": 2
+        },
+        "mopSpeed": 129231.83429880012,
+        "mop/quad": 2.7868417302073683,
+        "outputSizePerQuad": 99.0,
+        "CodeGen(%)": 33.59540570334903
+    },
+    "SIMBData": {
+        "out": "amcQwB.o",
+        "bytes": 393758
+    },
+    "Misc": {
+        "cwd": "/root/RV_DV_Track/dv_infrastructure/sim",
+        "archive_dir": "archive.0",
+        "daidir_abs": "/root/RV_DV_Track/dv_infrastructure/sim/simv.daidir",
+        "daidir": "simv.daidir",
+        "csrc": "csrc",
+        "csrc_abs": "/root/RV_DV_Track/dv_infrastructure/sim/csrc",
+        "default_output_dir": "csrc"
+    },
+    "CompileProcesses": [
+        "cgproc.14631.json"
+    ],
+    "CurCompileModules": [
+        "...MASTER...",
+        "...MASTER...",
+        "vcs_paramclassrepository",
+        "vcs_paramclassrepository",
+        "_vcs_unit__4069597086",
+        "_vcs_unit__4069597086",
+        "std",
+        "std",
+        "uvm_pkg",
+        "uvm_pkg",
+        "_vcs_msglog",
+        "_vcs_msglog",
+        "uvm_custom_install_recording",
+        "uvm_custom_install_recording",
+        "spi_lite",
+        "spi_lite",
+        "spi_lite_fifo",
+        "spi_lite_fifo",
+        "spi_axi_intf",
+        "spi_axi_intf",
+        "testbench_top",
+        "testbench_top"
+    ],
+    "LVLData": [
+        "SIM"
+    ],
+    "PEModules": [],
+    "CompileStatus": "Successful"
+}

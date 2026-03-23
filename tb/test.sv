@@ -24,10 +24,27 @@ class spi_base_test extends uvm_test;
 
 endclass
 
+class srr_test extends spi_base_test;
+    `uvm_component_utils(srr_test);
+
+    function new(string name="ssr_test", uvm_component parent);
+        super.new(name, parent);
+    endfunction
+
+    task run_phase(uvm_phase phase);
+        srr_vseq vseq;
+        phase.raise_objection(this);
+        vseq = srr_vseq::type_id::create("vseq", this);
+        vseq.start(env.spi_mcseq);
+        #100;
+        phase.drop_objection(this);
+    endtask
+
+endclass
 
 class sanity_test extends spi_base_test;
     `uvm_component_utils(sanity_test)
-    function new(string name, uvm_component parent);
+    function new(string name = "sanity_test", uvm_component parent);
         super.new(name, parent);
     endfunction
     task run_phase(uvm_phase phase);
@@ -56,30 +73,5 @@ class hw_reset_registers_test extends spi_base_test;
 endclass
 
 
-
-
-// class sanity_test extends spi_base_test;
-
-//     `uvm_component_utils(sanity_test)
-
-//     function new(string name = "sanity_test", uvm_component parent);
-//         super.new(name, parent);
-//     endfunction
-
-//     function void build_phase(uvm_phase phase);
-//         super.build_phase(phase);
-//     endfunction
-
-//     task run_phase(uvm_phase phase);
-//         spi_axi_seq vseq;
-//         phase.raise_objection(this);
-//         vseq = spi_axi_seq::type_id::create("vseq", this);
-//         vseq.start(env.spi_mcseq);
-//         #500;
-//         phase.drop_objection(this);
-
-//     endtask
-
-// endclass
 
 `endif

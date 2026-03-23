@@ -31,6 +31,18 @@ class axi_base_seq extends uvm_sequence #(axi_transaction);
 
 endclass
 
+class srr_seq extends axi_base_seq;
+    `uvm_object_utils(srr_seq);
+
+    function new(string name="srr_seq");
+        super.new(name);
+    endfunction
+
+    task body();
+        `uvm_info(get_type_name(), "Software Reset (SRR=0x0A)", UVM_LOW)
+        axi_write(`SPI_SRR, 32'h0000_000A);   // SRR at 0x40
+    endtask
+endclass
 
 class sanity_seq extends axi_base_seq;
 
