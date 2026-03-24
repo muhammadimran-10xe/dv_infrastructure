@@ -74,7 +74,9 @@ class sanity_seq extends axi_base_seq;
         axi_write(`SPI_DTR, 32'h0000_00AA);   // DTR at 0x68
 
         // `uvm_info(get_type_name(), "Load TX FIFO (DTR=0xA)", UVM_LOW)
-        // axi_write(`SPI_DTR, 32'h0000_00FF);   // DTR at 0x68
+        axi_write(`SPI_DTR, 32'h0000_00FF);   // DTR at 0x68
+        axi_write(`SPI_DTR, 32'h0000_00B5);   // DTR at 0x68
+        axi_write(`SPI_DTR, 32'h0000_00BB);   // DTR at 0x68
 
         axi_write(`SPI_CR, 32'h0000_0086);   // CR at 0x60
         axi_read(`SPI_SR);
@@ -83,7 +85,26 @@ class sanity_seq extends axi_base_seq;
         end
         axi_read(`SPI_SR);
         axi_read(`SPI_DRR);
+        axi_read(`SPI_SR);
+        while(p_sequencer.rdata[0] ) begin
+            axi_read(`SPI_SR);
+        end
+        axi_read(`SPI_SR);
+        axi_read(`SPI_DRR);
 
+        axi_read(`SPI_SR);
+        while(p_sequencer.rdata[0] ) begin
+            axi_read(`SPI_SR);
+        end
+        axi_read(`SPI_SR);
+        axi_read(`SPI_DRR);
+        
+        axi_read(`SPI_SR);
+        while(p_sequencer.rdata[0] ) begin
+            axi_read(`SPI_SR);
+        end
+        axi_read(`SPI_SR);
+        axi_read(`SPI_DRR);
         `uvm_info(get_type_name(), "=== Transfer complete ===", UVM_LOW)
 
     endtask
@@ -135,6 +156,34 @@ class loop_seq extends axi_base_seq;
         axi_read(`SPI_DRR);
         `uvm_info(get_type_name(), "=== Transfer complete ===", UVM_LOW)
 
+    endtask
+
+endclass
+
+class lsb_seq extends axi_base_seq;
+    `uvm_object_utils(lsb_seq)
+    `uvm_declare_p_sequencer(axi_sequencer)
+
+    function new(string name="lsb_seq");
+        super.new(name);
+    endfunction
+
+    task body();
+        `uvm_info(get_type_name(), "Running LSB seq", UVM_LOW)
+        axi_write(`SPI_SRR, 32'h0000_000A);   // SRR at 0x40
+        axi_write(`SPI_DGIER,  32'h8000_0000);   // global interrupt enable
+        axi_write(`SPI_IPIER,  32'h0000_0004);   // enable TX_EMPTY interrupt
+        axi_write(`SPI_CR, 32'h0000_0386);   // no loop standard spi with slave agent but lsb first
+        axi_write(`SPI_SSR, 32'h0000_0000);
+        axi_write(`SPI_DTR, 32'h0000_0055);   // DTR at 0x68
+        axi_write(`SPI_CR, 32'h0000_0286);   // CR at 0x60 
+        axi_read(`SPI_SR);
+        while(p_sequencer.rdata[0] ) begin
+            axi_read(`SPI_SR);
+        end
+        axi_read(`SPI_SR);
+        axi_read(`SPI_DRR);
+        `uvm_info(get_type_name(), "=== Transfer complete ===", UVM_LOW)
     endtask
 
 endclass

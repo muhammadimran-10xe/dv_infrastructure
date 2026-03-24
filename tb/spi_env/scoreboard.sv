@@ -43,14 +43,24 @@ class spi_scoreboard #(parameter WIDTH=8, parameter DEPTH=4) extends uvm_scorebo
         if (tr.trans_type == axi_transaction::WRITE)
             ref_model.update_model(tr);
 
-        if (tr.trans_type == axi_transaction::WRITE &&
-            tr.addr[7:0] == `SPI_DTR)
+        if (tr.trans_type == axi_transaction::WRITE && tr.addr[7:0] == `SPI_DTR) begin
             dtr_q.push_back(tr);
+        end
 
         check_response(tr);
 
         if (tr.trans_type == axi_transaction::READ && tr.addr[7:0] == `SPI_DRR) begin
-            drr_q.push_back(tr);
+            if(ref_model.rm.lsb_first) begin
+                bit[WIDTH-1:0] reverse;
+                for(int i = 0; i < WIDTH; i++) begin
+                    reverse[i] = tr.rdata[7-i];
+                end
+                tr.rdata = reverse;
+                drr_q.push_back(tr);
+            end
+            else begin
+                drr_q.push_back(tr);
+            end
             if (ref_model.rm.rx_fifo_count > 0)
                 ref_model.rm.rx_fifo_count--;
             if (ref_model.rm.loop && dtr_q.size() > 0)
@@ -132,10 +142,18 @@ class spi_scoreboard #(parameter WIDTH=8, parameter DEPTH=4) extends uvm_scorebo
     endfunction
 
     function void write_spi(spi_slave_transaction tr);
-        `uvm_info("[SCBD]",
-            $sformatf("SPI  MOSI=0x%02h  MISO=0x%02h", tr.mosi, tr.miso),
-            UVM_MEDIUM)
-        mosi_q.push_back(tr);  // for MOSI check
+        `uvm_info("[SCBD]",$sformatf("SPI  MOSI=0x%02h  MISO=0x%02h", tr.mosi, tr.miso),UVM_MEDIUM)
+        if(ref_model.rm.lsb_first) begin
+            bit [WIDTH-1:0] reverse;
+            for(int i=0; i<WIDTH; i++) begin
+                reverse[i] = tr.mosi[7-i];
+            end
+            tr.mosi = reverse;
+            mosi_q.push_back(tr);
+        end
+        else begin
+            mosi_q.push_back(tr);  // for MOSI check
+        end
         miso_q.push_back(tr);  // for MISO check 
         if (ref_model.rm.tx_fifo_count > 0)
             ref_model.rm.tx_fifo_count--;

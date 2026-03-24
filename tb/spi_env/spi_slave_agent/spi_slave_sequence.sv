@@ -9,6 +9,8 @@ class spi_slave_sequence extends uvm_sequence #(spi_slave_transaction);
         spi_slave_transaction trans = spi_slave_transaction::type_id::create("trans");
         `uvm_do_with(trans, {miso == 8'h1b;})
         // `uvm_do_with(trans, {miso == 8'h49;})
+        // `uvm_do_with(trans, {miso == 8'hA5;})
+        // `uvm_do_with(trans, {miso == 8'h55;})
 
     endtask
 

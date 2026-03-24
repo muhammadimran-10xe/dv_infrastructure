@@ -84,7 +84,26 @@ class loop_vseq extends base_vseq;
     task body();
         loop_seq seq;
         seq = loop_seq::type_id::create("seq");
-        run_axi_seq(seq);   // no SPI bus activity needed
+        run_axi_seq(seq);   
+    endtask
+endclass
+
+class lsb_vseq extends base_vseq;
+
+    `uvm_object_utils(lsb_vseq);
+
+    lsb_seq       axi_seq;
+    spi_slave_sequence   spi_seq;
+
+    function new(string name = "lsb_vseq");
+        super.new(name);
+    endfunction
+
+    task body();
+        axi_seq = lsb_seq::type_id::create("axi_seq");
+        spi_seq = spi_slave_sequence::type_id::create("spi_seq");
+
+        run_transfer_seq(axi_seq, spi_seq);
     endtask
 endclass
 

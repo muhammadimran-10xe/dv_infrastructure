@@ -90,4 +90,22 @@ class loop_test extends spi_base_test;
 
 endclass
 
+class lsb_test extends spi_base_test;
+    `uvm_component_utils(lsb_test);
+
+    function new(string name="lsb_test", uvm_component parent);
+        super.new(name, parent);
+    endfunction
+
+    task run_phase(uvm_phase phase);
+        lsb_vseq vseq;
+        phase.raise_objection(this);
+        vseq = lsb_vseq::type_id::create("vseq", this);
+        vseq.start(env.spi_mcseq);
+        #500;
+        phase.drop_objection(this);
+    endtask
+
+endclass
+
 `endif
