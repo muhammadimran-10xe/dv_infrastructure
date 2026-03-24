@@ -52,7 +52,7 @@ class sanity_test extends spi_base_test;
         phase.raise_objection(this);
         vseq = sanity_vseq::type_id::create("vseq", this);
         vseq.start(env.spi_mcseq);
-        #100;
+        #200;
         phase.drop_objection(this);
     endtask
 endclass

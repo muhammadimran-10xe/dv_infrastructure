@@ -73,8 +73,8 @@ class sanity_seq extends axi_base_seq;
         `uvm_info(get_type_name(), "Load TX FIFO (DTR=0xA)", UVM_LOW)
         axi_write(`SPI_DTR, 32'h0000_00AA);   // DTR at 0x68
 
-        `uvm_info(get_type_name(), "Load TX FIFO (DTR=0xA)", UVM_LOW)
-        axi_write(`SPI_DTR, 32'h0000_00FF);   // DTR at 0x68
+        // `uvm_info(get_type_name(), "Load TX FIFO (DTR=0xA)", UVM_LOW)
+        // axi_write(`SPI_DTR, 32'h0000_00FF);   // DTR at 0x68
 
         axi_write(`SPI_CR, 32'h0000_0086);   // CR at 0x60
         axi_read(`SPI_SR);

@@ -13,7 +13,8 @@ class spi_scoreboard #(parameter WIDTH=8, parameter DEPTH=4) extends uvm_scorebo
 
     axi_transaction       dtr_q[$];  // data transmit queue
     axi_transaction       drr_q[$];  // data receive queue
-    spi_slave_transaction spi_q[$];  // SPI slave transactions
+    spi_slave_transaction miso_q[$];  // SPI slave transactions
+    spi_slave_transaction mosi_q[$];  // SPI slave transactions
 
     spi_refrence_model #(WIDTH, DEPTH) ref_model;
     axi_transaction axi_trans;
@@ -58,8 +59,11 @@ class spi_scoreboard #(parameter WIDTH=8, parameter DEPTH=4) extends uvm_scorebo
         end
 
         if (tr.trans_type == axi_transaction::READ && tr.addr[7:0] != `SPI_DRR) begin
-            if (tr.addr[7:0] == `SPI_SR && ref_model.rm.tx_fifo_count > 0)
-                axi_trans = tr;   
+            if (tr.addr[7:0] == `SPI_SR) begin
+                logic [31:0] exp = ref_model.rdata_out(tr.addr);
+                if (tr.rdata[31:0] === exp)
+                    check_register(tr);
+            end
             else
                 check_register(tr);
         end
@@ -131,22 +135,18 @@ class spi_scoreboard #(parameter WIDTH=8, parameter DEPTH=4) extends uvm_scorebo
         `uvm_info("[SCBD]",
             $sformatf("SPI  MOSI=0x%02h  MISO=0x%02h", tr.mosi, tr.miso),
             UVM_MEDIUM)
-        spi_q.push_back(tr);
+        mosi_q.push_back(tr);  // for MOSI check
+        miso_q.push_back(tr);  // for MISO check 
         if (ref_model.rm.tx_fifo_count > 0)
             ref_model.rm.tx_fifo_count--;
         if (ref_model.rm.rx_fifo_count < DEPTH)
             ref_model.rm.rx_fifo_count++;
-        if (axi_trans != null && axi_trans.addr[7:0] == `SPI_SR) begin
-            check_register(axi_trans);
-            axi_trans = null;   
-        end
         mosi_check();
-        miso_check();
     endfunction
 
     function void mosi_check();
-        if (spi_q.size() > 0 && dtr_q.size() > 0) begin
-            spi_slave_transaction spi_tr = spi_q.pop_front();
+        if (mosi_q.size() > 0 && dtr_q.size() > 0) begin
+            spi_slave_transaction spi_tr = mosi_q.pop_front();
             axi_transaction       dtr_tr = dtr_q.pop_front();
             if (dtr_tr.wdata[`SPI_DTR_DATA_R] == spi_tr.mosi) begin
                 pass_cnt++;
@@ -165,8 +165,8 @@ class spi_scoreboard #(parameter WIDTH=8, parameter DEPTH=4) extends uvm_scorebo
     endfunction
 
     function void miso_check();
-        if (spi_q.size() > 0 && drr_q.size() > 0) begin
-            spi_slave_transaction spi_tr = spi_q.pop_front();
+        if (miso_q.size() > 0 && drr_q.size() > 0) begin
+            spi_slave_transaction spi_tr = miso_q.pop_front();
             axi_transaction       drr_tr = drr_q.pop_front();
             if (drr_tr.rdata[`SPI_DRR_DATA_R] === spi_tr.miso) begin
                 pass_cnt++;
