@@ -52,7 +52,7 @@ class sanity_test extends spi_base_test;
         phase.raise_objection(this);
         vseq = sanity_vseq::type_id::create("vseq", this);
         vseq.start(env.spi_mcseq);
-        #500;
+        #100;
         phase.drop_objection(this);
     endtask
 endclass
@@ -67,11 +67,27 @@ class hw_reset_registers_test extends spi_base_test;
         phase.raise_objection(this);
         vseq = hw_reset_registers_vseq::type_id::create("vseq", this);
         vseq.start(env.spi_mcseq);
-        #100;
+        // #100;
         phase.drop_objection(this);
     endtask
 endclass
 
+class loop_test extends spi_base_test;
+    `uvm_component_utils(loop_test);
 
+    function new(string name="loop_test", uvm_component parent);
+        super.new(name, parent);
+    endfunction
+
+    task run_phase(uvm_phase phase);
+        loop_vseq vseq;
+        phase.raise_objection(this);
+        vseq = loop_vseq::type_id::create("vseq", this);
+        vseq.start(env.spi_mcseq);
+        #100;
+        phase.drop_objection(this);
+    endtask
+
+endclass
 
 `endif

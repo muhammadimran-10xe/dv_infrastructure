@@ -7,10 +7,13 @@ class spi_refrence_model #(parameter WIDTH=8, parameter DEPTH=4) extends uvm_com
 
     function new(string name="spi_refrence_model", uvm_component parent);
         super.new(name, parent);
-        reset_model();
     endfunction
 
-
+    function void build_phase(uvm_phase phase);
+        super.build_phase(phase);
+        reset_model();
+    endfunction
+// Registers Struct
     typedef struct {
         logic loop;             
         logic spe;              
@@ -28,7 +31,7 @@ class spi_refrence_model #(parameter WIDTH=8, parameter DEPTH=4) extends uvm_com
     } reg_model_t;
 
     reg_model_t rm;
-
+// SPI_CSRs reset configurations
     function void reset_model();
         rm.loop = `SPI_CR_LOOP_DEFAULT;
         rm.spe = `SPI_CR_SPE_DEFAULT;
@@ -44,7 +47,7 @@ class spi_refrence_model #(parameter WIDTH=8, parameter DEPTH=4) extends uvm_com
         rm.tx_fifo_count = 0;
         rm.rx_fifo_count = 0;
     endfunction
-
+// update register's configuration state
     function void update_model(axi_transaction tr);
         case(tr.addr[7:0])
             `SPI_DGIER:
@@ -52,7 +55,7 @@ class spi_refrence_model #(parameter WIDTH=8, parameter DEPTH=4) extends uvm_com
             `SPI_IPISR: ;// try to write will clear this
             `SPI_IPIER:
                 rm.ipier_tx_empty = tr.wdata[`SPI_IPIER_TX_EMPTY_R];
-            `SPI_SSR: begin
+            `SPI_SRR: begin
                 if(tr.wdata == 32'hA)
                     reset_model();
                 else
@@ -81,7 +84,7 @@ class spi_refrence_model #(parameter WIDTH=8, parameter DEPTH=4) extends uvm_com
                 rm.ssr_value = tr.wdata[`SPI_SSR_VALUE_R];
         endcase
     endfunction
-
+// read registers/configuration
     function logic [31:0] rdata_out(logic [31:0] addr);
         logic [31:0] expected = 32'h0;
         case(addr[7:0])
@@ -104,14 +107,10 @@ class spi_refrence_model #(parameter WIDTH=8, parameter DEPTH=4) extends uvm_com
                 expected[`SPI_CR_LSB_FIRST_R]     = rm.lsb_first;
             end
             `SPI_SR: begin
-                expected[`SPI_SR_RX_EMPTY_R] =
-                    (rm.rx_fifo_count == 0)     ? 1'b1 : 1'b0;
-                expected[`SPI_SR_RX_FULL_R]  =
-                    (rm.rx_fifo_count == DEPTH) ? 1'b1 : 1'b0;
-                expected[`SPI_SR_TX_EMPTY_R] =
-                    (rm.tx_fifo_count == 0)     ? 1'b1 : 1'b0;
-                expected[`SPI_SR_TX_FULL_R]  =
-                    (rm.tx_fifo_count == DEPTH) ? 1'b1 : 1'b0;
+                expected[`SPI_SR_RX_EMPTY_R] = (rm.rx_fifo_count == 0)     ? 1'b1 : 1'b0;
+                expected[`SPI_SR_RX_FULL_R]  = (rm.rx_fifo_count == DEPTH) ? 1'b1 : 1'b0;
+                expected[`SPI_SR_TX_EMPTY_R] = (rm.tx_fifo_count == 0)     ? 1'b1 : 1'b0;
+                expected[`SPI_SR_TX_FULL_R]  = (rm.tx_fifo_count == DEPTH) ? 1'b1 : 1'b0;
             end
             `SPI_DTR:
                 expected = 32'h0;
@@ -126,21 +125,6 @@ class spi_refrence_model #(parameter WIDTH=8, parameter DEPTH=4) extends uvm_com
 
     endfunction
 
-    function void spi_transfer();
-        if (rm.tx_fifo_count > 0) rm.tx_fifo_count--;
-        if (rm.rx_fifo_count < DEPTH) rm.rx_fifo_count++;
-        `uvm_info("[REF_MODEL]",
-            $sformatf("SPI transfer done — tx=%0d rx=%0d",
-                       rm.tx_fifo_count, rm.rx_fifo_count),
-            UVM_MEDIUM)
-    endfunction
-
-    function void drr_pop();
-        if (rm.rx_fifo_count > 0) rm.rx_fifo_count--;
-        `uvm_info("[REF_MODEL]",
-            $sformatf("DRR read — rx_count=%0d", rm.rx_fifo_count),
-            UVM_MEDIUM)
-    endfunction
 
 endclass
 

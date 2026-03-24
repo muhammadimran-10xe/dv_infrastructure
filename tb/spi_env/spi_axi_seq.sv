@@ -73,5 +73,19 @@ class hw_reset_registers_vseq extends base_vseq;
     endtask
 endclass
 
+class loop_vseq extends base_vseq;
+
+    `uvm_object_utils(loop_vseq);
+
+    function new(string name = "loop_vseq");
+        super.new(name);
+    endfunction
+
+    task body();
+        loop_seq seq;
+        seq = loop_seq::type_id::create("seq");
+        run_axi_seq(seq);   // no SPI bus activity needed
+    endtask
+endclass
 
 `endif

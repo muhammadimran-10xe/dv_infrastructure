@@ -16,7 +16,7 @@ COMP_OPT += -acc +vpi +lint=TFIPC-L
 
 # Simulation options
 SIM_OPT += +UVM_TESTNAME=$(TEST)
-SIM_OPT += +UVM_VERBOSITY=UVM_HIGH
+SIM_OPT += +UVM_VERBOSITY=UVM_MEDIUM
 SIM_OPT += +vcs+initreg+0
 
 # DUT files

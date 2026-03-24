@@ -23,7 +23,7 @@ typedef enum {WRITE, READ} spi_trans_type;
     rand logic [ADDR_WIDTH-1:0] addr;
     rand logic [DATA_WIDTH-1:0] wdata;
     rand logic [(DATA_WIDTH/8)-1:0] wstrb;
-    logic [DATA_WIDTH:0] rdata;
+    bit [DATA_WIDTH:0] rdata;
     logic [1:0] rresp;
     logic [1:0] wresp;
     // logic awvalid;

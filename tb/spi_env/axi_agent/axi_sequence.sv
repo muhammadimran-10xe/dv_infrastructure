@@ -41,6 +41,12 @@ class srr_seq extends axi_base_seq;
     task body();
         `uvm_info(get_type_name(), "Software Reset (SRR=0x0A)", UVM_LOW)
         axi_write(`SPI_SRR, 32'h0000_000A);   // SRR at 0x40
+        axi_read(`SPI_CR  );
+        axi_read(`SPI_SR  );
+        axi_read(`SPI_SSR );
+        axi_read(`SPI_DGIER);
+        axi_read(`SPI_IPISR);
+        axi_read(`SPI_IPIER);
     endtask
 endclass
 
@@ -56,7 +62,7 @@ class sanity_seq extends axi_base_seq;
 
     task body();
         // axi_transaction axi_tr = axi_transaction::type_id::create("axi_tr");
-        `uvm_info(get_type_name(), "Software Reset (SRR=0x0A)", UVM_LOW)
+        `uvm_info(get_type_name(), "Performing Sanity Test", UVM_LOW)
         axi_write(`SPI_SRR, 32'h0000_000A);   // SRR at 0x40
         axi_write(`SPI_DGIER,  32'h8000_0000);   // global interrupt enable
         axi_write(`SPI_IPIER,  32'h0000_0004);   // enable TX_EMPTY interrupt
@@ -75,12 +81,9 @@ class sanity_seq extends axi_base_seq;
         while(p_sequencer.rdata[0] ) begin
             axi_read(`SPI_SR);
         end
+        axi_read(`SPI_SR);
         axi_read(`SPI_DRR);
-        // axi_read(`SPI_SR);
-        // while(p_sequencer.rdata[0] ) begin
-        //     axi_read(`SPI_SR);
-        // end
-        // axi_read(`SPI_DRR);
+
         `uvm_info(get_type_name(), "=== Transfer complete ===", UVM_LOW)
 
     endtask
@@ -94,9 +97,7 @@ class hw_reset_registers_seq extends axi_base_seq;
     endfunction
 
     task body();
-        // rst_i is asserted by testbench_top at time 0
-        // Sequences run after reset drops — registers should be at reset values
-        `uvm_info(get_type_name(), "Checking reset values of all 9 registers", UVM_LOW)
+        `uvm_info(get_type_name(), "Checking reset values of all registers", UVM_LOW)
 
         axi_read(`SPI_CR  );
         axi_read(`SPI_SR  );
@@ -109,4 +110,32 @@ class hw_reset_registers_seq extends axi_base_seq;
     endtask
 endclass
 
+class loop_seq extends axi_base_seq;
+    `uvm_object_utils(loop_seq)
+    `uvm_declare_p_sequencer(axi_sequencer)
+
+    function new(string name="loop_seq");
+        super.new(name);
+    endfunction
+
+    task body();
+        `uvm_info(get_type_name(), "Running Loop seq", UVM_LOW)
+        axi_write(`SPI_SRR, 32'h0000_000A);   // SRR at 0x40
+        axi_write(`SPI_DGIER,  32'h8000_0000);   // global interrupt enable
+        axi_write(`SPI_IPIER,  32'h0000_0004);   // enable TX_EMPTY interrupt
+        axi_write(`SPI_CR, 32'h0000_0187);   // CR at 0x60
+        axi_write(`SPI_SSR, 32'h0000_0000);
+        axi_write(`SPI_DTR, 32'h0000_00A5);   // DTR at 0x68
+        axi_write(`SPI_CR, 32'h0000_0087);   // CR at 0x60
+        axi_read(`SPI_SR);
+        while(p_sequencer.rdata[0] ) begin
+            axi_read(`SPI_SR);
+        end
+        axi_read(`SPI_SR);
+        axi_read(`SPI_DRR);
+        `uvm_info(get_type_name(), "=== Transfer complete ===", UVM_LOW)
+
+    endtask
+
+endclass
 `endif

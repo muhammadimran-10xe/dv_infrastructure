@@ -50,7 +50,7 @@ class spi_env extends uvm_env;
         spi_mcseq.spi_slave_seqr = spi_slave.seqr;
         spi_mcseq.axi_seqr = axi.seqr;
         axi.mon.ap_mon.connect(axi.seqr.mon2seq_imp);
-        axi.ap_drv.connect(spi_scb.axi_drv2scb_imp);
+        // axi.ap_drv.connect(spi_scb.axi_drv2scb_imp);
         axi.ap_mon.connect(spi_scb.axi_mon2scb_imp);
         spi_slave.mon.ap_mon.connect(spi_scb.spi_mon2scb_imp);
     endfunction

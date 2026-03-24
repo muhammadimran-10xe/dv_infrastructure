@@ -7,10 +7,10 @@ class axi_driver extends uvm_driver #(axi_transaction);
 
     virtual spi_axi_intf vif;
     axi_config   cfg;
-    uvm_analysis_port #(axi_transaction) ap_drv;
+    // uvm_analysis_port #(axi_transaction) ap_drv;
     function void build_phase(uvm_phase phase);
         super.build_phase(phase);
-        ap_drv = new("ap_drv", this);
+        // ap_drv = new("ap_drv", this);
         if (!uvm_config_db #(axi_config)::get(this, "", "axi_cfg", cfg))
             `uvm_fatal("[AXI_DRV]", "axi_config not found in config_db")
         vif = cfg.vif;
@@ -62,7 +62,7 @@ class axi_driver extends uvm_driver #(axi_transaction);
         vif.awvalid_i <= 0;
         vif.wvalid_i  <= 0;
         vif.bready_i  <= 1;
-        ap_drv.write(trans);
+        // ap_drv.write(trans);
         @(posedge vif.clk_i iff vif.bvalid_o);
         vif.bready_i  <= 0;
         `uvm_info("AXI DRV", "Write Transaction Driven", UVM_LOW)
@@ -76,7 +76,7 @@ class axi_driver extends uvm_driver #(axi_transaction);
         vif.arvalid_i <= 0; 
         vif.araddr_i <= '0;
         vif.rready_i  <= 1;
-        ap_drv.write(trans);
+        // ap_drv.write(trans);
         @(posedge vif.clk_i iff (vif.rvalid_o && vif.rready_i));
         vif.rready_i <= 0;
         `uvm_info("AXI DRV", "Read Transaction Driven", UVM_LOW)
